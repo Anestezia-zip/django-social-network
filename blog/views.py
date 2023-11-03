@@ -1,3 +1,19 @@
-from django.shortcuts import render
+from typing import Any
+from django.db.models.query import QuerySet
+from django.shortcuts import render, get_object_or_404, reverse
+from django.views import generic, View
+from django.http import HttpResponseRedirect
+from .models import Post
+from django.contrib.auth.models import User
+# from .forms import CommentForm
 
-# Create your views here.
+
+class UserPostListView(generic.ListView):
+    model = Post
+    template_name = 'home.html'
+    context_object_name = 'posts_list'
+    paginate_by = 6
+
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Post.objects.filter(author=user).order_by('-date_created')
