@@ -10,8 +10,7 @@ from django.contrib.auth.models import User
 
 class UserPostListView(generic.ListView):
     model = Post
-    template_name = 'home.html'
-    context_object_name = 'posts_list'
+    template_name = 'user_posts.html'
     paginate_by = 6
 
     # def get_queryset(self):
