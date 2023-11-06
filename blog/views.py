@@ -18,21 +18,9 @@ class UserPostListView(generic.ListView):
 
     def get_queryset(self):
         return Post.objects.all().order_by('-date_created')
-    
+  
 
-class PostCreateView(LoginRequiredMixin, CreateView):
-    model = Post
-    fields = ['title', 'content']
+class PostDetail(DetailView):
 
-    def form_valid(self, form, *args, **kwargs):#
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-    
-
-class PostDetailView(DetailView):
-    model = Post
-    context_object_name = 'blog_post_detail'
-
-    def get(self, request, *args, **kwargs):
-        
-        return super().get(request, *args, **kwargs)
+    def get(self, request, slug, *args, **kwargs):
+        queryset = Post.objects.filter(status=1)

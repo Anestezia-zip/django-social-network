@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.urls import reverse
 from ckeditor.fields import RichTextField
 
-# STATUS = ((0, "Draft"), (1, "Published"))
+STATUS = ((0, "Draft"), (1, "Published"))
 
 class Post(models.Model):
     title = models.CharField(max_length=95, help_text="Maximum 95 characters", db_index=True)
@@ -15,10 +15,10 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     likes = models.ManyToManyField(User, blank=True, related_name='blog_likes')
     replies = models.ForeignKey('self', null=True, blank=True, related_name='reply_to', on_delete=models.CASCADE)
+    status = models.IntegerField(choices=STATUS, default=0)
 
     # featured_image = CloudinaryField('image', default='placeholder')
     # excerpt = models.TextField(blank=True)
-    # status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
         ordering = ["-date_created"]
