@@ -1,5 +1,7 @@
-from typing import Any
 from django.db.models.query import QuerySet
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import CreateView
+from django.views.generic.detail import DetailView
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
@@ -12,14 +14,25 @@ class UserPostListView(generic.ListView):
     model = Post
     template_name = 'user_posts.html'
     paginate_by = 6
+    context_object_name = 'posts_list'
 
-    # def get_queryset(self):
-    #     user = get_object_or_404(User, username=self.kwargs.get('username'))
-    #     return Post.objects.filter(author=user).order_by('-date_created')
+    def get_queryset(self):
+        return Post.objects.all().order_by('-date_created')
+    
 
-    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
-        user = get_object_or_404(User, username=self.kwargs.get('username'))
-        queryset = Post.objects.filter(author=user)
-        context = super().get_context_data(**kwargs)
-        context['posts_list'] = queryset.order_by('-date_created')
-        return context
+class PostCreateView(LoginRequiredMixin, CreateView):
+    model = Post
+    fields = ['title', 'content']
+
+    def form_valid(self, form, *args, **kwargs):#
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+    
+
+class PostDetailView(DetailView):
+    model = Post
+    context_object_name = 'blog_post_detail'
+
+    def get(self, request, *args, **kwargs):
+        
+        return super().get(request, *args, **kwargs)

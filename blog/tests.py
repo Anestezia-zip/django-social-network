@@ -1,3 +1,9 @@
 from django.test import TestCase
+from .models import Post
+import pytest 
 
-# Create your tests here.
+
+@pytest.mark.django_db
+def test_title_create():
+    article = Post.objects.create(title='article1')
+    assert article.title == 'article1'

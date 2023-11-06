@@ -67,6 +67,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'ckeditor',
+
     # my apps
     'blog.apps.BlogConfig',
     # have to be the last

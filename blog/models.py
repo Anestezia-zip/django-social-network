@@ -14,9 +14,8 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
     slug = models.SlugField(max_length=200, unique=True)
     likes = models.ManyToManyField(User, blank=True, related_name='blog_likes')
-    replies = models.ForeignKey('self', null=True, related_name='reply_to', on_delete=models.CASCADE)
+    replies = models.ForeignKey('self', null=True, blank=True, related_name='reply_to', on_delete=models.CASCADE)
 
-    # content = models.TextField()
     # featured_image = CloudinaryField('image', default='placeholder')
     # excerpt = models.TextField(blank=True)
     # status = models.IntegerField(choices=STATUS, default=0)
