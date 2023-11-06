@@ -7,7 +7,7 @@ from ckeditor.fields import RichTextField
 # STATUS = ((0, "Draft"), (1, "Published"))
 
 class Post(models.Model):
-    title = models.CharField(max_length=200, help_text="Maximum 200 characters", db_index=True)
+    title = models.CharField(max_length=95, help_text="Maximum 95 characters", db_index=True)
     content = RichTextField(max_length=5000, blank=True, null=True, help_text="Maximum 5000 characters")
     date_created = models.DateTimeField(default=timezone.now)
     date_updated = models.DateTimeField(auto_now=True)

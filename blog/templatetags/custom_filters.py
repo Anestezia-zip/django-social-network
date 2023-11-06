@@ -20,7 +20,7 @@ class HTMLStripper(HTMLParser):
 
 @register.filter
 def truncate_text(text, length):
-    # Используем HTMLStripper для извлечения текста без HTML-тегов
+    # Using HTMLStripper to extract text without HTML tags
     html_stripper = HTMLStripper()
     html_stripper.feed(text)
     text_without_tags = html_stripper.get_text()
