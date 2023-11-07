@@ -36,7 +36,7 @@ DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'soc_net.herokuapp.com']
 
 
 # Application definition
@@ -48,7 +48,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.sites',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     'debug_toolbar',
     # 'channels',
     'django.contrib.humanize',
@@ -60,7 +62,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.github',
-
     'crispy_forms',
     'ckeditor',
 
