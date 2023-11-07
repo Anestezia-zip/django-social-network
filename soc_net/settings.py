@@ -36,7 +36,7 @@ DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'soc_net.herokuapp.com', 'django-volunteer-force-daec5f5fae54.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'django-volunteer-force-daec5f5fae54.herokuapp.com']
 
 
 # Application definition
@@ -212,27 +212,3 @@ CKEDITOR_CONFIGS = {
         'width': 'auto',
     },
 }
-
-# django-channels
-"""
-ASGI_APPLICATION = "soc_net.routing.application"
-
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels.layers.InMemoryChannelLayer'
-    }
-}
-
-"""
-
-# email
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = os.getenv('EMAIL_PORT')
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.getenv('EMAIL_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASS')
-
-GOOGLE_RECAPTCHA_SECRET_KEY = os.getenv('GOOGLE_RECAPTCHA_SECRET_KEY')
-
-os.environ['DJANGO_ALLOW_ASYNC_UNSAFE'] = 'true'

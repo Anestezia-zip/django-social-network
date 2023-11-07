@@ -9,7 +9,7 @@ a {
 }
 
 .card:hover {
-    scale: 1.03;
+    scale: 1.02;
     transition: all .3s ease-in-out;
 }
 
@@ -35,5 +35,5 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: red;
+    background-color: rgb(14, 81, 153);
 }

@@ -1,4 +1,4 @@
-{% load static %}
+{% load static account socialaccount %}
 
 <!DOCTYPE html>
 <html class="h-100">
@@ -24,12 +24,19 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+              {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'account_login' %}">Login</a>
               </li>
+              {% endif %}
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Dropdown
@@ -53,15 +60,16 @@
         </div>
       </nav>
     <main class="flex-shrink-0 main-bg">
-
+        <!-- {% user_display user %} -->
+        <!-- {% provider_login_url "google" %} -->
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
     </main>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3 dark-bg">
-        <img class="footer-img" height="150px" src="https://tenti.in.ua/catalog/wp-content/uploads/2022/07/flag-galichina.jpg" alt="">
+    <footer class="footer mt-auto dark-bg">
+        <img class="footer-img" height="90px" src="https://tenti.in.ua/catalog/wp-content/uploads/2022/07/flag-galichina.jpg" alt="">
     </footer>
 
 
