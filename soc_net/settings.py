@@ -36,7 +36,7 @@ DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'soc_net.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'soc_net.herokuapp.com', 'django-volunteer-force-daec5f5fae54.herokuapp.com']
 
 
 # Application definition
