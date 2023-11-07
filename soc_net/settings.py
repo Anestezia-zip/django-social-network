@@ -67,8 +67,6 @@ INSTALLED_APPS = [
 
     # my apps
     'blog.apps.BlogConfig',
-    # have to be the last
-    'django_cleanup.apps.CleanupConfig'
 ]
 
 SITE_ID = 1
