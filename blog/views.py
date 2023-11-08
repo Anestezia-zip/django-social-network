@@ -1,9 +1,6 @@
-from django.db.models.query import QuerySet
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.edit import CreateView
 from django.views.generic.detail import DetailView
-from django.shortcuts import render, get_object_or_404, reverse
-from django.views import generic, View
+from django.shortcuts import render, get_object_or_404
+from django.views import generic
 from django.http import HttpResponseRedirect
 from .models import Post
 from django.contrib.auth.models import User

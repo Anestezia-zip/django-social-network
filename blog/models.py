@@ -1,8 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-from django.urls import reverse
 from ckeditor.fields import RichTextField
+from cloudinary.models import CloudinaryField
+
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -14,10 +15,8 @@ class Post(models.Model):
     date_updated = models.DateTimeField(auto_now=True)
     content = RichTextField(max_length=5000, blank=True, null=True, help_text="Maximum 5000 characters")
     replies = models.ForeignKey('self', null=True, blank=True, related_name='reply_to', on_delete=models.CASCADE)
-    status = models.IntegerField(choices=STATUS, default=0)
-
-    # featured_image = CloudinaryField('image', default='placeholder')
-    # excerpt = models.TextField(blank=True)
+    status = models.IntegerField(choices=STATUS, default=1)
+    featured_image = CloudinaryField('image', default='placeholder')
 
     class Meta:
         ordering = ["-date_created"]

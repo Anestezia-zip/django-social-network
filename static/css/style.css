@@ -1,8 +1,44 @@
 
+/* ---------------------------------- Common ---------------------------------- */
+
+body {
+    background-color: rgba(99, 169, 199, 0.062);
+    /* overflow-x: hidden; */
+}
 
 a {
     text-decoration: none;
 }
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 16px;
+}
+
+.text-align-c {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.submit-btn {
+    width: 200px;
+    padding: 8px;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #ccc; 
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+
+/* ---------------------------------- Card ---------------------------------- */
 
 .card {
     transition: all .3s ease-in-out;
@@ -13,8 +49,12 @@ a {
     transition: all .3s ease-in-out;
 }
 
-.card-title{
-    min-height: 75px;
+.card-title, .post-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 65px;
     font-family: Roboto;
     font-weight: bold;
     font-size: 20px;
@@ -22,7 +62,7 @@ a {
     margin-top: 14px;
 }
 
-.card-author {
+.card-author, .user {
     padding: 3px;
     margin-left: 6px;
     background-color: aliceblue;
@@ -30,10 +70,94 @@ a {
     border-radius: 5px;
 }
 
+/* ---------------------------------- Post ---------------------------------- */
+
+.post-img-box {
+    max-width: 100%;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.post-img-box img {
+    max-width: 100%; 
+    height: auto;
+}
+
+.post-detail-image {
+    vertical-align: middle;
+}
+
+.post-title {
+    font-size: 28px;
+    width: 1100px;
+}
+
+/* ---------------------------------- Footer ---------------------------------- */
+
 .footer {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgb(14, 81, 153);
+}
+
+/* --------------------------------------- User -------------------------------------- */
+
+.user {
+    margin: 0 20px 0;
+    color: white;
+    background-color: rgb(14, 81, 153);
+    padding: 1px 16px;
+}
+
+/* ---------------------------------- Login & SignUp ---------------------------------- */
+
+.login, .signup, .signout {
+    margin: 30px auto 0;
+    width: 600px;
+    padding: 50px;
+    background-color: white;
+}
+
+.signup {
+    padding: 30px;
+}
+
+.optional-email-text {
+    position: relative;
+    left: -205px;
+}
+
+input#id_login, input#id_password, 
+input#id_username, input#id_password1,
+input#id_email, input#id_password2 {
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 16px;
+    border: 1px solid #ccc; 
+    border-radius: 6px;
+}
+
+input#id_email::placeholder::after {
+    content: " (optional)";
+    color: #999; 
+}
+
+
+input#id_login:focus, input#id_password:focus,
+input#id_username:focus, input#id_password1:focus,
+input#id_email:focus, input#id_password2:focus {
+    border: 1px solid transparent; 
+    outline: 1px solid #007bff; 
+}
+
+.login-link {
+    width: 300px;
+    padding: 8px;
+    color: black;
+    border: 1px solid green;
+    border-radius: 10px;
 }
