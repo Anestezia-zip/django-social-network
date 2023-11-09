@@ -1,12 +1,7 @@
-from channels.auth import AuthMiddlewareStack
-from channels.routing import ProtocolTypeRouter, URLRouter
-from django.urls import path
-from blog.routing import websocket_urlpatterns
+# soc_net/routing.py
+from django.urls import re_path
+from blog.consumers import ChatConsumer
 
-application = ProtocolTypeRouter({
-    'websocket': AuthMiddlewareStack(
-        URLRouter(
-            websocket_urlpatterns
-        )
-    ),
-})
+websocket_urlpatterns = [
+    re_path(r'ws/chat/$', ChatConsumer.as_asgi()),
+]

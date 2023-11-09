@@ -1,5 +1,6 @@
 from . import views
 from django.urls import path
+from .routing import websocket_urlpatterns
 
 
 urlpatterns = [
@@ -8,3 +9,5 @@ urlpatterns = [
     path('profile/', views.UserPostsView.as_view(), name='profile'),
     path('profile/chat/<int:user_id>/', views.open_chat, name='open_chat'),
 ]
+
+urlpatterns += websocket_urlpatterns

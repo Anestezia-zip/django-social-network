@@ -38,7 +38,8 @@
                         <p class="card-text text-muted h6">
                             {{ user_post.date_created }} {{ post.number_of_likes }}
                         </p>
-                        <a href="{% url 'open_chat' user_post.author.id %}">Open chat</a>
+                        <!-- <a href="{% url 'open_chat' user_post.author.id %}">Open chat</a> -->
+                        <a href="/ws/chat/" target="_blank">Open chat</a>
                     </div>
                 </div>
             </div>
