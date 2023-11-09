@@ -20,10 +20,10 @@
                         <a href="{% url 'post_detail' post.slug %}" class="post-link">
                             <h2 class="card-title">{{ post.title }}</h2>
                         </a>
-                        <p>{{ post.content|truncate_text:170 }}</p>
+                        <p class="card-content">{{ post.content|truncate_text:170 }}</p>
                         <hr />
                         <p class="card-text text-muted h6">
-                            {{ post.date_created }} <i class="far fa-heart"></i>{{ post.number_of_likes }}
+                            {{ post.date_created }} {{ post.number_of_likes }}
                         </p>
                     </div>
                 </div>

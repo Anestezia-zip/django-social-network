@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
 from django.conf import settings
+from blog.views import add_item
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls'), name='blog_urls'),
     path('accounts/', include('allauth.urls')),
     path('accounts/', include('allauth.socialaccount.urls')),
+    path('add', add_item, name='add'),
 ]
 
 if settings.DEBUG:

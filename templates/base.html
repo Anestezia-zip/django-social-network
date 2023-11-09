@@ -45,7 +45,8 @@
                   Dropdown
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">My posts</a></li>
+                  <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                  <li><a class="dropdown-item" href="/add">Add new post</a></li>
                   <li><a class="dropdown-item" href="#">Another action</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -62,7 +63,7 @@
           </div>
         </div>
       </nav>
-    <main class="flex-shrink-0 main-bg">
+    <main class="flex-shrink-0 main-bg" style="max-width: 1400px; width: 100%; margin: 0 auto; padding: 20px 10px;">
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}

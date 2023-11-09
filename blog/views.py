@@ -1,15 +1,14 @@
 from django.views.generic.detail import DetailView
-from django.shortcuts import render, get_object_or_404
-from django.views import generic
-from django.http import HttpResponseRedirect
+from django.shortcuts import redirect, render, get_object_or_404
+from django.views import View, generic
 from .models import Post
-from django.contrib.auth.models import User
-# from .forms import CommentForm
+from .forms import PostForm
+from django.utils.text import slugify
 
 
-class UserPostListView(generic.ListView):
+class AllPostsView(generic.ListView):
     model = Post
-    template_name = 'user_posts.html'
+    template_name = 'home.html'
     paginate_by = 6
     context_object_name = 'posts_list'
 
@@ -32,4 +31,42 @@ class PostDetail(DetailView):
                 'post': post
             }
         )
+
+
+class UserPostsView(View):
+    template_name = 'profile.html'
+
+    def get(self, request):
+        if request.user.is_authenticated:
+            user = request.user
+            user_posts = Post.objects.filter(author=user)
+        else:
+            user_posts = []  # empty list for unauthenticated users
+        return render(request, self.template_name, {'user_posts': user_posts})
+
+
+def add_item(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+
+            # Generate a unique slug based on the title
+            base_slug = slugify(post.title)
+            slug = base_slug
+            counter = 1
+
+            while Post.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{counter}"
+                counter += 1
+            
+            post.slug = slug
+            post.save()
+            return redirect('home')
+    form = PostForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'add_post.html', context)
 

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load custom_filters %}
+
+<div class="container-fluid">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for user_post in user_posts %}
+            <div class="col col-lg-4 col-md-6 col-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="image-container d-flex justify-content-between">
+                            <div>
+                                <img 
+                                    width="30px" height="30px"
+                                    src="https://cdn0.iconfinder.com/data/icons/unigrid-flat-human-vol-2/90/011_101_anonymous_anonym_hacker_vendetta_user_human_avatar-1024.png" 
+                                    alt="card-img"
+                                >
+                                <span class="card-author">{{ user_post.author }}</span>
+                            </div>
+                            <div>
+                                <i class="fa-regular fa-pen-to-square"></i>
+                                <i class="fa-solid fa-trash-can" style="margin: 0 20px;"></i>
+                            </div>
+                        </div>
+                        <a href="{% url 'post_detail' user_post.slug %}">
+                            <h2 class="card-title">{{ user_post.title }}</h2>
+                        </a>
+                        <p class="card-content">{{ user_post.content|truncate_text:170 }}</p>
+                        <hr />
+                        <p class="card-text text-muted h6">
+                            {{ user_post.date_created }} {{ post.number_of_likes }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

@@ -10,6 +10,13 @@
 
 <form class="signup center" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
   {{ form.username }}
   <span class="optional-email-text">(email is optional)</span>
   {{ form.email }}
