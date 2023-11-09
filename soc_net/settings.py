@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django.contrib.humanize',
     'django_extensions',
+    'channels',
 
     # packages
     'allauth',
@@ -150,6 +151,7 @@ SOCIALACCOUNT_PROVIDERS = {
 
 WSGI_APPLICATION = 'soc_net.wsgi.application'
 
+ASGI_APPLICATION = 'soc_net.routing.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases

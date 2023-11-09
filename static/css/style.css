@@ -3,11 +3,11 @@
 
 body {
     background-color: rgba(99, 169, 199, 0.062);
-    /* overflow-x: hidden; */
 }
 
 a {
     text-decoration: none;
+    /* color: #364f6a; */
 }
 
 .center {
@@ -37,6 +37,10 @@ a {
     margin-top: 10px;
 }
 
+.add-post-btn {
+    margin-bottom: 60px;
+}
+
 
 /* ---------------------------------- Card ---------------------------------- */
 
@@ -47,8 +51,7 @@ a {
 }
 
 .card-body {
-    min-height: 272px;
-    background-color: #e3a6c2;
+    min-height: 303px;
 }
 
 .card:hover {
@@ -140,7 +143,8 @@ a {
 
 input#id_login, input#id_password, 
 input#id_username, input#id_password1,
-input#id_email, input#id_password2 {
+input#id_email, input#id_password2,
+input#id_title {
     width: 100%; 
     padding: 10px; 
     margin-bottom: 16px;
@@ -148,15 +152,40 @@ input#id_email, input#id_password2 {
     border-radius: 6px;
 }
 
-input#id_email::placeholder::after {
-    content: " (optional)";
-    color: #999; 
+input#id_title {
+    width: 52%;
+    margin-left: 14px;
+    margin-top: 10px;
 }
 
+/* file upload button */
+input[type="file"]::file-selector-button {
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 0 16px;
+    height: 40px;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+    margin-right: 16px;
+    margin-left: 16px;
+    transition: all 0.3s ease;
+}
+  
+input[type="file"]::file-selector-button:hover {
+    background-color: #c9d6ef;
+    border: 1px solid #c9d6ef;
+}
+  
+input[type="file"]::file-selector-button:active {
+    background-color: #e5e7eb;
+}
 
 input#id_login:focus, input#id_password:focus,
 input#id_username:focus, input#id_password1:focus,
-input#id_email:focus, input#id_password2:focus {
+input#id_email:focus, input#id_password2:focus,
+input#id_title:focus {
     border: 1px solid transparent; 
     outline: 1px solid #007bff; 
 }

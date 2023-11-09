@@ -4,6 +4,7 @@ from django.views import View, generic
 from .models import Post
 from .forms import PostForm
 from django.utils.text import slugify
+from django.contrib import messages
 
 
 class AllPostsView(generic.ListView):
@@ -45,7 +46,7 @@ class UserPostsView(View):
         return render(request, self.template_name, {'user_posts': user_posts})
 
 
-def add_item(request):
+def add_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -70,3 +71,29 @@ def add_item(request):
     }
     return render(request, 'add_post.html', context)
 
+
+def edit_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    form = PostForm(instance=post)
+    context = {
+        'form': form
+    }
+    return render(request, 'edit_post.html', context)
+
+
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    post.delete()
+    messages.success(request, 'Post deleted successfully.')
+    return redirect('profile')
+
+
+def open_chat(request, user_id):
+    # Логика открытия чата, например, создание новой комнаты чата
+    # ...
+    return render(request, 'chat_room.html', {'user_id': user_id})
