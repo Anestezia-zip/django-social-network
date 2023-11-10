@@ -4,13 +4,20 @@
 {% load custom_filters %}
 
 <div class="container-fluid">
-    {% if messages %}
-        <ul class="messages">
-    {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-        </ul>
+  <h1>{{ user.username }}'s Profile</h1>
+
+
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
     {% endif %}
+    
+    <a href="/add">Add new post</a>
+    <hr/>
+    <a href="/edit_profile">Edit profile</a>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         {% for user_post in user_posts %}
             <div class="col col-lg-4 col-md-6 col-12">
@@ -38,8 +45,6 @@
                         <p class="card-text text-muted h6">
                             {{ user_post.date_created }} {{ post.number_of_likes }}
                         </p>
-                        <!-- <a href="{% url 'open_chat' user_post.author.id %}">Open chat</a> -->
-                        <a href="/ws/chat/" target="_blank">Open chat</a>
                     </div>
                 </div>
             </div>

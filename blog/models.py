@@ -14,7 +14,6 @@ class Post(models.Model):
     date_created = models.DateTimeField(default=timezone.now)
     date_updated = models.DateTimeField(auto_now=True)
     content = RichTextField(max_length=5000, blank=True, null=True, help_text="Maximum 5000 characters")
-    replies = models.ForeignKey('self', null=True, blank=True, related_name='reply_to', on_delete=models.CASCADE)
     status = models.IntegerField(choices=STATUS, default=1)
     featured_image = CloudinaryField('image', default='placeholder')
 
@@ -28,3 +27,21 @@ class Post(models.Model):
         return self.likes.count()
     
 
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField(max_length=500, blank=True)
+    avatar = CloudinaryField('image', default='placeholder')
+
+    def __str__(self):
+        return self.user.username
+    
+
+class Region(models.Model):
+    name = models.CharField(max_length=50)
+    image = CloudinaryField('image', default='placeholder')
+    description = models.TextField()
+    top_position = models.PositiveIntegerField()
+    left_position = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.name

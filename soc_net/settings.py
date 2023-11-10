@@ -151,8 +151,6 @@ SOCIALACCOUNT_PROVIDERS = {
 
 WSGI_APPLICATION = 'soc_net.wsgi.application'
 
-ASGI_APPLICATION = 'soc_net.asgi.application'
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
