@@ -17,4 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Hide full-screen overlay when clicked
         overlay.style.display = 'none';
     });
+
+    // Bootstrap slider
+    let myCarousel = new bootstrap.Carousel(document.getElementById('carouselExample'), {
+        interval: false // Отключить автоматическое воспроизведение
+    });
 });

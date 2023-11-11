@@ -39,6 +39,8 @@ class UserProfile(models.Model):
 class Region(models.Model):
     name = models.CharField(max_length=50)
     image = CloudinaryField('image', default='placeholder')
+    image2 = CloudinaryField('image', default='placeholder')
+    image3 = CloudinaryField('image', default='placeholder')
     description = models.TextField()
     top_position = models.PositiveIntegerField()
     left_position = models.PositiveIntegerField()
