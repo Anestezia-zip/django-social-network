@@ -10,7 +10,7 @@
     <div>
         {% for region in regions %}
         <button class="region-button" 
-                data-region-images="{{ region.image.url }},{{ region.image2.url }},{{ region.image3.url }}" 
+                data-region-images="{{ region.image.url }},{{ region.image2.url }},{{ region.image3.url }},{{ region.image4.url }}" 
                 data-region-name="{{ region.name }}"
                 data-region-description="{{ region.description }}"
                 style="position: absolute; top: {{ region.top_position }}px; left: {{ region.left_position }}px;"
@@ -30,8 +30,7 @@
 
 <!-- Add an element for displaying the full-screen image -->
 <div id="full-screen-overlay">
-    <div id="full-screen-image-container">
-    </div>
+    <div id="full-screen-image-container"></div>
 </div>
 
 
