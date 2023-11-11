@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttons = document.querySelectorAll('.region-button');
     const overlay = document.getElementById('full-screen-overlay');
     const fullScreenImageContainer = document.getElementById('full-screen-image-container');
-    const fullScreenImage = document.getElementById('full-screen-image');
 
     buttons.forEach(button => {
         button.addEventListener('click', function () {

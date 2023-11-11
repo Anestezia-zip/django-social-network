@@ -232,16 +232,18 @@ input#id_title:focus {
     color: black;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    transition: all .3s ease-in-out;
-    z-index: 2;
+    transition: all .5s ease-in-out;
+    z-index: 4;
 }
 
 .region-button:hover .region-popup {
     display: block;
+    transition: all .5s ease-in-out;
 }
 
 .region-popup.visible {
     display: block;
+    transition: all .5s ease-in-out;
 }
 
 .region-popup img {
