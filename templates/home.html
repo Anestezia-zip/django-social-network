@@ -8,65 +8,68 @@
 
     <div>
         {% for region in regions %}
-            <button class="region-button" 
-                    data-region-image="{{ region.image.url }}" 
-                    data-region-name="{{ region.name }}"
-                    data-region-description="{{ region.description }}"
-                    style="position: absolute; top: {{ region.top_position }}px; left: {{ region.left_position }}px;">
-                <i class="fa-solid fa-house-chimney-crack"></i>
-            </button>
+        <button class="region-button" 
+                data-region-image="{{ region.image.url }}" 
+                data-region-name="{{ region.name }}"
+                data-region-description="{{ region.description }}"
+                style="position: absolute; top: {{ region.top_position }}px; left: {{ region.left_position }}px;"
+        >
+            <i class="fa-solid fa-house-chimney-crack"></i>   
+            <div class="region-popup">
+                <h2>{{ region.name }}</h2>
+                <img class="region-popup-zoom-img" src="{{ region.image.url }}" alt="{{ region.name }}">
+                <hr/>
+                <p>{{ region.description }}</p>
+                <div class="photo-hint">Click to enlarge</div>
+            </div>
+        </button>
         {% endfor %}
     </div>
 </div>
 
+<button class="region-button" style="color:rgb(130, 201, 201);" id="e"><i class="fa-solid fa-house-chimney-crack"></i></button>
 
-
-<div class="overlay" id="overlay"></div>
-
-<!-- Modal for region image and description -->
-<div class="region-popup" id="region-modal">
-    <div id="modal-content">
-        <h2 id="region-modal-name"></h2>
-        <img id="region-modal-image" alt="">
-        <p id="region-modal-description"></p>
-        <button id="close-modal">Close</button>
+<!-- Add an element for displaying the full-screen image -->
+<div id="full-screen-overlay">
+    <div id="full-screen-image-container">
+        <img id="full-screen-image" alt="">
     </div>
 </div>
+
 
 <div class="container-fluid" style="max-width: 1300px; width: 100%; margin: 0 auto; padding: 20px 10px;">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         {% for post in posts_list %}
-            <div class="col col-lg-4 col-md-6 col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="image-container">
-                            <img 
-                                width="30px" height="30px"
-                                src="https://cdn0.iconfinder.com/data/icons/unigrid-flat-human-vol-2/90/011_101_anonymous_anonym_hacker_vendetta_user_human_avatar-1024.png" 
-                                alt="card-img"
-                            >
-                            <span class="card-author">{{ post.author }}</span>
-                        </div>
-
-                        <div class="card-img-box">
-                            {% if "placeholder" in post.featured_image.url %}
-                            <img class="card-detail-image" src="{% static 'images/volunteers-default-img.png' %}" width="100%">
-                            {% else %}
-                            <img class="card-detail-image" src=" {{ post.featured_image.url }}">
-                            {% endif %}
-                        </div>
-
-                        <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                            <h2 class="card-title">{{ post.title }}</h2>
-                        </a>
-                        <p class="card-content">{{ post.content|truncate_text:170|safe }}</p>
-                        <hr />
-                        <p class="card-text text-muted h6">
-                            {{ post.date_created }} {{ post.number_of_likes }}
-                        </p>
+        <div class="col col-lg-4 col-md-6 col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="image-container">
+                        <img width="30px" height="30px"
+                            src="https://cdn0.iconfinder.com/data/icons/unigrid-flat-human-vol-2/90/011_101_anonymous_anonym_hacker_vendetta_user_human_avatar-1024.png"
+                            alt="card-img">
+                        <span class="card-author">{{ post.author }}</span>
                     </div>
+
+                    <div class="card-img-box">
+                        {% if "placeholder" in post.featured_image.url %}
+                        <img class="card-detail-image" src="{% static 'images/volunteers-default-img.png' %}"
+                            width="100%">
+                        {% else %}
+                        <img class="card-detail-image" src=" {{ post.featured_image.url }}">
+                        {% endif %}
+                    </div>
+
+                    <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                        <h2 class="card-title">{{ post.title }}</h2>
+                    </a>
+                    <p class="card-content">{{ post.content|truncate_text:170|safe }}</p>
+                    <hr />
+                    <p class="card-text text-muted h6">
+                        {{ post.date_created }} {{ post.number_of_likes }}
+                    </p>
                 </div>
             </div>
+        </div>
         {% endfor %}
     </div>
 </div>

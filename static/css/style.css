@@ -219,29 +219,28 @@ input#id_title:focus {
     overflow: hidden;
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+.region-popup {
+    position: relative;
+    top: 100%;
+    left: 50%;
+    min-width: 250px;
+    min-height: 300px;
     display: none;
-    z-index: 1;
+    transform: translate(-50%, 0);
+    background-color: white;
+    color: black;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all .3s ease-in-out;
+    z-index: 2;
 }
 
-.region-popup {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    display: none;
-    z-index: 2;
-    opacity: 0;
-    transition: all 0.3s ease-out;
+.region-button:hover .region-popup {
+    display: block;
+}
+
+.region-popup.visible {
+    display: block;
 }
 
 .region-popup img {
@@ -249,25 +248,79 @@ input#id_title:focus {
     height: auto;
 }
 
-.region-popup button {
-    margin-top: 10px;
-}
-
-.modal-open {
+.region-popup-zoom-img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
     display: block;
-    opacity: 1;
+    margin: auto;
+    margin-bottom: 14px;
 }
 
 .region-button {
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background-color: #fff;
+    color: red;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
     border-radius: 50%;
-    color: red;
     cursor: pointer;
 }
+
+.region-popup .photo-hint {
+    display: none;
+    position: absolute;
+    top: 15%;
+    right: 10px;
+    background-color: rgba(141, 141, 141, 0.8);
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.region-popup:hover .photo-hint {
+    display: block;
+}
+
+#full-screen-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    cursor: pointer;
+}
+
+#full-screen-image {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+    display: block;
+    margin: auto;
+    cursor: pointer;
+}
+
+#full-screen-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
 
 #map-image {
     position: relative;
@@ -278,8 +331,8 @@ input#id_title:focus {
     object-fit: cover;
 }
 
-#borodyanka {
+#e {
     position: absolute;
-    top: 190px;
-    left: 690px;
+    top: 360px;
+    left: 960px;
 }
