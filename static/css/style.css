@@ -222,7 +222,7 @@ input#id_title:focus {
 
 .region-popup {
     position: relative;
-    top: 100%;
+    top: 110%;
     left: 50%;
     min-width: 250px;
     min-height: 300px;
@@ -318,10 +318,22 @@ input#id_title:focus {
 
 #full-screen-image-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
     height: 100%;
 }
+
+#full-screen-image-container img {
+    max-width: 45%; /* Ширина каждого изображения в ряду (можете настроить по своему вкусу) */
+    max-height: 90%;
+    margin: 10px; /* Расстояние между изображениями */
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+    cursor: pointer;
+}
+
 
 
 #map-image {
@@ -338,3 +350,4 @@ input#id_title:focus {
     top: 220px;
     left: 1000px;
 }
+
