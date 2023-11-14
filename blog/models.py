@@ -43,8 +43,6 @@ class Region(models.Model):
     image3 = CloudinaryField('image3', default='placeholder')
     image4 = CloudinaryField('image4', default='placeholder')
     description = models.TextField()
-    top_position = models.PositiveIntegerField()
-    left_position = models.PositiveIntegerField()
 
     def __str__(self):
         return self.name

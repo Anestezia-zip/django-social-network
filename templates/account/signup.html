@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load i18n %}
+{% load account socialaccount %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock head_title %}
 
@@ -10,28 +11,14 @@
 
 <form class="signup center" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
-  {% if messages %}
-    <ul class="messages">
-      {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-  {{ form.username }}
-  <span class="optional-email-text">(email is optional)</span>
-  {{ form.email }}
-  {{ form.password1 }}
-  <ul>
-    <li>Your password can’t be too similar to your other personal information.</li>
-    <li>Your password must contain at least 8 characters.</li>
-    <li>Your password can’t be a commonly used password.</li>
-    <li>Your password can’t be entirely numeric.</li>
-  </ul>
-  {{ form.password2 }}
+  <h3>{% trans "Register" %}</h3>
+  {{ form.as_p }}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
   <button class="submit-btn" type="submit">{% trans "Sign Up" %} &raquo;</button>
+  <hr />
+  <a class="login-link text-align-c" href="{% provider_login_url 'google' %}"><i class="fa-brands fa-google"></i> Register with Google</a>
 </form>
 
 {% endblock content %}

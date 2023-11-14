@@ -11,11 +11,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 mt-3 offset-md-2">
+      <p class="text-align-c mt-20">{% blocktrans %}If you have not created an account yet, then please
+        <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+      </p>
       <form class="login center" method="POST" action="{% url 'account_login' %}">
         <h2 class="center">{% trans "Welcome back!" %}</h2>
         {% csrf_token %}
-        {{ form.login }}
-        {{ form.password }}
+        {{ form.as_p }}        
+
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
@@ -23,9 +26,6 @@
         <hr />
         <a class="login-link text-align-c" href="{% provider_login_url 'google' %}"><i class="fa-brands fa-google"></i>  Login with Google</a>
       </form>
-      <p class="text-align-c mt-20">{% blocktrans %}If you have not created an account yet, then please
-        <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
-      </p>
     </div>
   </div>
 </div>

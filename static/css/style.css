@@ -5,6 +5,16 @@ body {
     background-color: rgba(99, 169, 199, 0.062);
 }
 
+#homepage-container {
+    max-width: 1300px; 
+    width: 100%; 
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 a {
     text-decoration: none;
     /* color: #364f6a; */
@@ -35,6 +45,7 @@ a {
     border: 1px solid #ccc; 
     border-radius: 6px;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .add-post-btn {
@@ -144,30 +155,29 @@ a {
     background-color: white;
 }
 
-.signup {
+.signup, .login {
     padding: 30px;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
-.optional-email-text {
-    position: relative;
-    left: -205px;
-}
-
-input#id_login, input#id_password, 
-input#id_username, input#id_password1,
-input#id_email, input#id_password2,
-input#id_title {
-    width: 100%; 
+.signup input,
+.login input{
+    width: 500px; 
     padding: 10px; 
-    margin-bottom: 16px;
     border: 1px solid #ccc; 
     border-radius: 6px;
 }
 
-input#id_title {
-    width: 52%;
-    margin-left: 14px;
-    margin-top: 10px;
+input#id_remember {
+    width: 20px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+label[for="id_remember"] {
+    cursor: pointer;
 }
 
 /* file upload button */
@@ -194,10 +204,7 @@ input[type="file"]::file-selector-button:active {
     background-color: #e5e7eb;
 }
 
-input#id_login:focus, input#id_password:focus,
-input#id_username:focus, input#id_password1:focus,
-input#id_email:focus, input#id_password2:focus,
-input#id_title:focus {
+.signup input:focus {
     border: 1px solid transparent; 
     outline: 1px solid #007bff; 
 }
@@ -217,7 +224,7 @@ input#id_title:focus {
     display: grid;
     place-items: center;
     max-height: 100vh;
-    overflow: hidden;
+    /* background-image: ; */
 }
 
 .region-popup {
@@ -327,9 +334,6 @@ input#id_title:focus {
     cursor: pointer;
 }
 
-
-
-
 #map-image {
     position: relative;
     max-width: 100%;
@@ -339,9 +343,1077 @@ input#id_title:focus {
     object-fit: cover;
 }
 
-#e {
-    position: absolute;
-    top: 220px;
-    left: 1000px;
+.map-descr-text-bold {
+    max-width: 860px;
+    font-family: Roboto;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 5px;
+    margin: 10px;
 }
 
+.map-descr-text {
+    font-family: Roboto;
+    letter-spacing: 2px;
+}
+
+.map-descr-section {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+/* --------------------------------------- Region Btns Positions & Media Queries -------------------------------------- */
+
+#Lviv {
+    top: 29%;
+    left: 30%;
+}
+#Lutsk {
+    top: 16.5%;
+    left: 31%;
+}
+#Rivne {
+    top: 20%;
+    left: 35%;
+}
+#Ternopil {
+    top: 29%;
+    left: 32%;
+}
+#Ivano-Frankivsk {
+    top: 39%;
+    left: 32.5%;
+}
+#Glevaha {
+    top: 20.5%;
+    left: 45%;
+}
+#Kyiv {
+    top: 25%;
+    left: 49%;
+}
+#Borodyanka {
+    top: 28%;
+    left: 47%;
+}
+#Chernihiv {
+    top: 10.5%;
+    left: 52%;
+}
+#Sumy {
+    top: 17%;
+    left: 59%;
+}
+#Harkiv {
+    top: 26%;
+    left: 66%;
+}
+#Dnipro {
+    top: 46%;
+    left: 64%;
+}
+#Zaporizhzhya {
+    top: 52%;
+    left: 62%;
+}
+#Mariupol {
+    top: 62%;
+    left: 70%;
+}
+[id="Kryvyi Rih"] {
+    top: 49%;
+    left: 56%;
+}
+#Cherkasy {
+    top: 35%;
+    left: 49%;
+}
+#Zhytomyr {
+    top: 23%;
+    left: 41%;
+}
+#Hmelnytsky {
+    top: 32%;
+    left: 38%;
+}
+#Vinnytsia {
+    top: 36%;
+    left: 43%;
+}
+#Ohtyrka {
+    top: 22%;
+    left: 55%;
+}
+#Herson {
+    top: 66.5%;
+    left: 55%;
+}
+#Odesa {
+    top: 67%;
+    left: 48%;
+}
+#Mykolaiv {
+    top: 60%;
+    left: 52%;
+}
+#Uman {
+    top: 48%;
+    left: 44%;
+}
+#Nikopol {
+    top: 56%;
+    left: 59%;
+}
+
+@media only screen and (max-width: 768px) {
+    .region-button {
+        font-size: 7px;
+        width: 12px;
+        height: 13px;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    #Ohtyrka {
+        top: 25%;
+        left: 67%;
+    }
+    #Herson {
+        top: 66%;
+        left: 58%;
+    }
+    #Odesa {
+        left: 49%;
+    }
+    #Mykolaiv {
+        top: 59%;
+        left: 51%;
+    }
+    #Uman {
+        top: 48%;
+        left: 44%;
+    }
+    #Nikopol {
+        left: 64%;
+    }
+    #Zhytomyr {
+        top: 22%;
+        left: 36%;
+    }
+    #Hmelnytsky {
+        top: 31%;
+        left: 31%;
+    }
+    #Vinnytsia {
+        top: 35%;
+        left: 39%;
+    }
+    #Lviv {
+        top: 28%;
+        left: 15%;
+    }
+    #Lutsk {
+        top: 16%;
+        left: 21%;
+    }
+    #Rivne {
+        top: 19%;
+        left: 26%;
+    }
+    #Ternopil {
+        top: 28%;
+        left: 22%;
+    }
+    #Ivano-Frankivsk {
+        top: 38%;
+        left: 23%;
+    }
+    #Glevaha {
+        top: 20%;
+        left: 43%;
+    }
+    #Kyiv {
+        left: 48%;
+    }
+    #Borodyanka {
+        left: 44%;
+    }
+    #Chernihiv {
+        top: 10%;
+        left: 53%;
+    }
+    #Sumy {
+        top: 16%;
+        left: 64%;
+    }
+    #Harkiv {
+        top: 25%;
+        left: 75%;
+    }
+    #Dnipro {
+        top: 45%;
+        left: 74%;
+    }
+    #Zaporizhzhya {
+        top: 53%;
+        left: 71%;
+    }
+    #Mariupol {
+        left: 81%;
+    }
+    [id="Kryvyi Rih"] {
+        top: 48%;
+        left: 59%;
+    }
+    #Cherkasy {
+        top: 34%;
+        left: 49%;
+    }
+} 
+
+@media (min-width:540px) and (max-width:768px) {
+    #Ohtyrka {
+        top: 25%;
+        left: 67%;
+    }
+    #Herson {
+        top: 67%;
+        left: 58%;
+    }
+    #Odesa {
+        top: 69%;
+        left: 49%;
+    }
+    #Mykolaiv {
+        top: 60%;
+        left: 51%;
+    }
+    #Uman {
+        top: 48%;
+        left: 44%;
+    }
+    #Nikopol {
+        left: 64%;
+    }
+    #Zhytomyr {
+        top: 23%;
+        left: 36%;
+    }
+    #Hmelnytsky {
+        top: 32%;
+        left: 31%;
+    }
+    #Vinnytsia {
+        top: 36%;
+        left: 39%;
+    }
+    #Lviv {
+        top: 30%;
+        left: 15.5%;
+    }
+    #Lutsk {
+        top: 17%;
+        left: 21%;
+    }
+    #Rivne {
+        top: 21%;
+        left: 27%;
+    }
+    #Ternopil {
+        top: 30%;
+        left: 23%;
+    }
+    #Ivano-Frankivsk {
+        top: 40%;
+        left: 24%;
+    }
+    #Glevaha {
+        top: 21%;
+        left: 44%;
+    }
+    #Kyiv {
+        left: 48%;
+    }
+    #Borodyanka {
+        left: 44%;
+    }
+    #Chernihiv {
+        left: 53%;
+    }
+    #Sumy {
+        left: 64%;
+    }
+    #Harkiv {
+        top: 26%;
+        left: 75%;
+    }
+    #Dnipro {
+        top: 46%;
+        left: 74%;
+    }
+    #Zaporizhzhya {
+        top: 54%;
+        left: 71%;
+    }
+    #Mariupol {
+        left: 82%;
+    }
+    [id="Kryvyi Rih"] {
+        left: 60%;
+    }
+}
+
+@media (min-width:768px) and (max-width:960px) {
+    #Ohtyrka {
+        top: 25%;
+        left: 67%;
+    }
+    #Herson {
+        top: 66%;
+        left: 58%;
+    }
+    #Odesa {
+        left: 49%;
+    }
+    #Mykolaiv {
+        top: 59%;
+        left: 51%;
+    }
+    #Uman {
+        top: 48%;
+        left: 44%;
+    }
+    #Nikopol {
+        left: 64%;
+    }
+    #Zhytomyr {
+        top: 22%;
+        left: 36%;
+    }
+    #Hmelnytsky {
+        top: 31%;
+        left: 31%;
+    }
+    #Vinnytsia {
+        top: 35%;
+        left: 39%;
+    }
+    #Lviv {
+        left: 15.5%;
+    }
+    #Lutsk {
+        left: 20%;
+    }
+    #Rivne {
+        left: 26.5%;
+    }
+    #Ternopil {
+        left: 22%;
+    }
+    #Ivano-Frankivsk {
+        left: 23%;
+    }
+    #Glevaha {
+        top: 20%;
+        left: 44%;
+    }
+    #Kyiv {
+        left: 48%;
+    }
+    #Borodyanka {
+        left: 44%;
+    }
+    #Chernihiv {
+        top: 9%;
+        left: 53%;
+    }
+    #Sumy {
+        top: 16%;
+        left: 64%;
+    }
+    #Harkiv {
+        top: 25%;
+        left: 75%;
+    }
+    #Dnipro {
+        top: 45%;
+        left: 74%;
+    }
+    #Zaporizhzhya {
+        top: 53%;
+        left: 71%;
+    }
+    #Mariupol {
+        left: 81%;
+    }
+    [id="Kryvyi Rih"] {
+        left: 60%;
+    }
+    #Cherkasy {
+        top: 34%;
+
+    }
+}
+
+@media (min-width:960px) and (max-width:1000px) {
+    #Ohtyrka {
+        top: 25%;
+        left: 67%;
+    }
+    #Herson {
+        top: 66%;
+        left: 58%;
+    }
+    #Odesa {
+        left: 49%;
+    }
+    #Mykolaiv {
+        top: 59%;
+        left: 51%;
+    }
+    #Uman {
+        top: 48%;
+        left: 44%;
+    }
+    #Nikopol {
+        left: 64%;
+    }
+    #Zhytomyr {
+        top: 23%;
+        left: 36%;
+    }
+    #Hmelnytsky {
+        top: 32%;
+        left: 31%;
+    }
+    #Vinnytsia {
+        top: 37%;
+        left: 39%;
+    }
+    #Lviv {
+        left: 16.5%;
+    }
+    #Lutsk {
+        left: 21%;
+    }
+    #Rivne {
+        left: 27%;
+    }
+    #Ternopil {
+        left: 23%;
+    }
+    #Ivano-Frankivsk {
+        left: 24%;
+    }
+    #Glevaha {
+        left: 44%;
+    }
+    #Kyiv {
+        top: 26%;
+        left: 48%;
+    }
+    #Borodyanka {
+        top: 29%;
+        left: 44%;
+    }
+    #Chernihiv {
+        left: 53%;
+    }
+    #Sumy {
+        left: 64%;
+    }
+    #Harkiv {
+        left: 75%;
+    }
+    #Dnipro {
+        left: 74%;
+    }
+    #Zaporizhzhya {
+        top: 54%;
+        left: 71%;
+    }
+    #Mariupol {
+        left: 81%;
+    }
+    [id="Kryvyi Rih"] {
+        top: 50%;
+        left: 60%;
+    }
+}
+
+@media (min-width:1000px) and (max-width:1050px) {
+    #Ohtyrka {
+        top: 25%;
+        left: 67%;
+    }
+    #Herson {
+        top: 68%;
+        left: 58%;
+    }
+    #Odesa {
+        top: 70%;
+        left: 49%;
+    }
+    #Mykolaiv {
+        top: 61%;
+        left: 51%;
+    }
+    #Uman {
+        top: 49%;
+        left: 44%;
+    }
+    #Nikopol {
+        left: 64%;
+    }
+    #Zhytomyr {
+        top: 22%;
+        left: 36%;
+    }
+    #Hmelnytsky {
+        top: 32%;
+        left: 31%;
+    }
+    #Vinnytsia {
+        top: 36%;
+        left: 39%;
+    }
+    #Lviv {
+        left: 18%;
+    }
+    #Lutsk {
+        left: 22%;
+    }
+    #Rivne {
+        left: 28%;
+    }
+    #Ternopil {
+        left: 25%;
+    }
+    #Ivano-Frankivsk {
+        left: 23.5%;
+    }
+    #Kyiv {
+        top: 26%;
+        left: 48%;
+    }
+    #Borodyanka {
+        top: 29%;
+        left: 44%;
+    }
+    #Chernihiv {
+        left: 53%;
+    }
+    #Sumy {
+        left: 64%;
+    }
+    #Harkiv {
+        left: 73%;
+    }
+    #Dnipro {
+        left: 72%;
+    }
+    #Zaporizhzhya {
+        top: 54%;
+        left: 69%;
+    }
+    #Mariupol {
+        left: 79%;
+    }
+    [id="Kryvyi Rih"] {
+        top: 50%;
+        left: 60%;
+    }
+}
+
+@media (min-width:1050px) and (max-width:1110px) {
+    #Ohtyrka {
+        top: 25%;
+        left: 67%;
+    }
+    #Herson {
+        top: 68%;
+        left: 58%;
+    }
+    #Odesa {
+        top: 70%;
+        left: 49%;
+    }
+    #Mykolaiv {
+        top: 61%;
+        left: 51%;
+    }
+    #Uman {
+        top: 49%;
+        left: 44%;
+    }
+    #Nikopol {
+        left: 64%;
+    }
+    #Zhytomyr {
+        top: 22%;
+        left: 37%;
+    }
+    #Hmelnytsky {
+        left: 32%;
+    }
+    #Vinnytsia {
+        left: 40%;
+    }
+    #Lviv {
+        left: 19%;
+    }
+    #Lutsk {
+        left: 23%;
+    }
+    #Rivne {
+        left: 29%;
+    }
+    #Ternopil {
+        left: 26%;
+    }
+    #Ivano-Frankivsk {
+        left: 25%;
+    }
+    #Kyiv {
+        top: 26%;
+        left: 48%;
+    }
+    #Borodyanka {
+        top: 29%;
+        left: 44%;
+    }
+    #Chernihiv {
+        left: 53%;
+    }
+    #Sumy {
+        left: 63%;
+    }
+    #Harkiv {
+        left: 73%;
+    }
+    #Dnipro {
+        left: 72%;
+    }
+    #Zaporizhzhya {
+        top: 54%;
+        left: 69%;
+    }
+    #Mariupol {
+        left: 79%;
+    }
+    [id="Kryvyi Rih"] {
+        top: 49.5%;
+        left: 60%;
+    }
+}
+
+@media (min-width:1110px) and (max-width:1200px) {
+    #Ohtyrka {
+        top: 25%;
+        left: 64%;
+    }
+    #Herson {
+        top: 67%;
+        left: 57%;
+    }
+    #Odesa {
+        top: 69%;
+        left: 49%;
+    }
+    #Mykolaiv {
+        top: 60%;
+        left: 51%;
+    }
+    #Nikopol {
+        left: 57%;
+    }
+    #Uman {
+        top: 49%;
+        left: 44%;
+    }
+    #Nikopol {
+        left: 64%;
+    }
+    #Zhytomyr {
+        left: 38%;
+    }
+    #Hmelnytsky {
+        left: 33%;
+    }
+    #Vinnytsia {
+        left: 40%;
+    }
+    #Lviv {
+        left: 21%;
+    }
+    #Lutsk {
+        left: 25%;
+    }
+    #Rivne {
+        left: 31%;
+    }
+    #Ternopil {
+        left: 27%;
+    }
+    #Ivano-Frankivsk {
+        left: 26%;
+    }
+    #Kyiv {
+        top: 26%;
+        left: 48%;
+    }
+    #Borodyanka {
+        top: 29%;
+        left: 45%;
+    }
+    #Chernihiv {
+        left: 53%;
+    }
+    #Sumy {
+        left: 62%;
+    }
+    #Harkiv {
+        left: 71%;
+    }
+    #Dnipro {
+        left: 70%;
+    }
+    #Zaporizhzhya {
+        top: 54%;
+        left: 68%;
+    }
+    #Mariupol {
+        left: 77%;
+    }
+    [id="Kryvyi Rih"] {
+        top: 49.5%;
+        left: 59%;
+    }
+} 
+
+@media (min-width:1200px) and (max-width:1290px) {
+    #Ohtyrka {
+        top: 25%;
+        left: 65%;
+    }
+    #Herson {
+        top: 67%;
+        left: 56%;
+    }
+    #Odesa {
+        top: 69%;
+        left: 49%;
+    }
+    #Mykolaiv {
+        left: 50%;
+    }
+    #Uman {
+        left: 43.5%;
+    }
+    #Nikopol {
+        left: 61%;
+    }
+    #Zhytomyr {
+        left: 39%;
+    }
+    #Hmelnytsky {
+        left: 34%;
+    }
+    #Vinnytsia {
+        left: 41%;
+    }
+    #Lviv {
+        left: 23%;
+    }
+    #Lutsk {
+        left: 27%;
+    }
+    #Rivne {
+        left: 32%;
+    }
+    #Ternopil {
+        left: 28%;
+    }
+    #Ivano-Frankivsk {
+        left: 28%;
+    }
+    #Kyiv {
+        top: 26%;
+        left: 48%;
+    }
+    #Borodyanka {
+        top: 28%;
+        left: 45%;
+    }
+    #Chernihiv {
+        left: 53%;
+    }
+    #Sumy {
+        left: 62%;
+    }
+    #Harkiv {
+        left: 70%;
+    }
+    #Dnipro {
+        left: 68%;
+    }
+    #Zaporizhzhya {
+        top: 54%;
+        left: 66%;
+    }
+    #Mariupol {
+        left: 75%;
+    }
+    [id="Kryvyi Rih"] {
+        top: 49.5%;
+        left: 58%;
+    }
+} 
+
+@media (min-width:1290px) and (max-width:1350px) {
+    #Ohtyrka {
+        top: 25%;
+        left: 63%;
+    }
+    #Herson {
+        left: 56%;
+    }
+    #Odesa {
+        top: 69%;
+        left: 49%;
+    }
+    #Mykolaiv {
+        left: 50%;
+    }
+    #Zhytomyr {
+        left: 40%;
+    }
+    #Hmelnytsky {
+        left: 36%;
+    }
+    #Vinnytsia {
+        left: 42%;
+    }
+    #Lviv {
+        left: 25%;
+    }
+    #Lutsk {
+        left: 29%;
+    }
+    #Rivne {
+        left: 33%;
+    }
+    #Ternopil {
+        left: 30%;
+    }
+    #Ivano-Frankivsk {
+        left: 29%;
+    }
+    #Glevaha {
+        left: 46%;
+    }
+    #Kyiv {
+        top: 26%;
+        left: 48%;
+    }
+    #Borodyanka {
+        left: 46%;
+    }
+    #Chernihiv {
+        left: 52%;
+    }
+    #Sumy {
+        left: 61%;
+    }
+    #Harkiv {
+        left: 69%;
+    }
+    #Dnipro {
+        left: 68%;
+    }
+    #Zaporizhzhya {
+        top: 54%;
+        left: 66%;
+    }
+    #Mariupol {
+        left: 73%;
+    }
+    [id="Kryvyi Rih"] {
+        top: 49.5%;
+        left: 58%;
+    }
+} 
+
+@media (min-width:1350px) and (max-width:1440px) {
+    #Ohtyrka {
+        top: 25%;
+        left: 62%;
+    }
+    #Herson {
+        left: 55%;
+    }
+    #Odesa {
+        top: 69%;
+        left: 49%;
+    }
+    #Mykolaiv {
+        left: 50%;
+    }
+    #Zhytomyr {
+        left: 40%;
+    }
+    #Hmelnytsky {
+        left: 36%;
+    }
+    #Vinnytsia {
+        left: 42%;
+    }
+    #Lviv {
+        left: 26%;
+    }
+    #Lutsk {
+        left: 30%;
+    }
+    #Rivne {
+        left: 34%;
+    }
+    #Ternopil {
+        left: 31%;
+    }
+    #Ivano-Frankivsk {
+        left: 30%;
+    }
+    #Glevaha {
+        left: 46.5%;
+    }
+    #Kyiv {
+        top: 26%;
+        left: 48%;
+    }
+    #Borodyanka {
+        left: 45.5%;
+    }
+    #Harkiv {
+        left: 68%;
+    }
+    #Dnipro {
+        left: 66%;
+    }
+    #Zaporizhzhya {
+        top: 54%;
+        left: 64%;
+    }
+    #Mariupol {
+        left: 71%;
+    }
+    [id="Kryvyi Rih"] {
+        top: 49.5%;
+        left: 57%;
+    }
+} 
+
+@media (min-width:1440px) and (max-width:1570px) {
+    #Ohtyrka {
+        top: 25%;
+        left: 61%;
+    }
+    #Herson {
+        left: 55%;
+    }
+    #Odesa {
+        top: 69%;
+        left: 49%;
+    }
+    #Mykolaiv {
+        left: 50%;
+    }
+    #Lviv {
+        left: 28%;
+    }
+    #Lutsk {
+        left: 31%;
+    }
+    #Rivne {
+        left: 35%;
+    }
+    #Ternopil {
+        left: 32%;
+    }
+    #Ivano-Frankivsk {
+        left: 32%;
+    }
+    #Glevaha {
+        left: 46.5%;
+    }
+    #Kyiv {
+        top: 26%;
+        left: 48.5%;
+    }
+    #Borodyanka {
+        left: 46%;
+    }
+    #Zaporizhzhya {
+        top: 54%;
+        left: 64%;
+    }
+    #Mariupol {
+        left: 70%;
+    }
+}
+
+@media (min-width:1570px) and (max-width:1800px) {
+    #Ohtyrka {
+        top: 25%;
+        left: 60%;
+    }
+    #Herson {
+        left: 55%;
+    }
+    #Odesa {
+        top: 69%;
+        left: 49%;
+    }
+    #Mykolaiv {
+        left: 50%;
+    }
+    #Lviv {
+        left: 29%;
+    }
+    #Lutsk {
+        left: 32%;
+    }
+    #Rivne {
+        left: 36%;
+    }
+    #Ternopil {
+        left: 33%;
+    }
+    #Ivano-Frankivsk {
+        left: 33%;
+    }
+    #Glevaha {
+        left: 47%;
+    }
+    #Kyiv {
+        top: 26%;
+        left: 48.5%;
+    }
+    #Borodyanka {
+        left: 46%;
+    }
+    #Harkiv {
+        left: 64%;
+    }
+    #Zaporizhzhya {
+        top: 54%;
+        left: 62%;
+    }
+    #Mariupol {
+        left: 68%;
+    }
+}
