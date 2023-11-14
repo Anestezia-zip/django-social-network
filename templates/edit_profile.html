@@ -2,12 +2,14 @@
 
 {% block content %}
 {% load custom_filters %}
+<section class="add-post p-30">
+    <h1>edit profile</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="submit-btn" type="submit">Save</button>
+    </form>
+</section>
 
-<h1>edit profile</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="submit-btn" type="submit">Save</button>
-</form>
 
 {% endblock %}

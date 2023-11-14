@@ -2,12 +2,15 @@
 
 {% block content %}
 
-<h3>Edit your post</h3>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    {{ form.media }}
-    <button class="submit-btn add-post-btn" type="submit">Save</button>
-</form>
+<section class="add-post p-30">
+    <h3>Edit your post</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {{ form.media }}
+        <button class="submit-btn add-post-btn" type="submit">Save</button>
+    </form>
+</section>
+
 
 {% endblock %}

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Region
+from .models import Post, Region, UserProfile
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
@@ -9,3 +9,8 @@ class PostAdmin(admin.ModelAdmin):
 @admin.register(Region)
 class RegionAdmin(admin.ModelAdmin):
     list_display = ('name', 'description')
+
+
+@admin.register(UserProfile)
+class RegionAdmin(admin.ModelAdmin):
+    list_display = ('avatar', 'bio')
