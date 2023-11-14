@@ -52,6 +52,18 @@ a {
     margin-bottom: 60px;
 }
 
+/* ---------------------------------- Navbar ---------------------------------- */
+
+.navbar {
+    background-color: #fff;
+    min-height: 70px;
+    font-family: Lato;
+}
+
+.navbar a {
+    color: black;
+    font-weight: bold;
+}
 
 /* ---------------------------------- Card ---------------------------------- */
 
@@ -224,7 +236,8 @@ input[type="file"]::file-selector-button:active {
     display: grid;
     place-items: center;
     max-height: 100vh;
-    /* background-image: ; */
+    background-image: url(../images/dnipro.jpg);
+    background-size:contain;
 }
 
 .region-popup {
