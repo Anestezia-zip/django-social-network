@@ -1,11 +1,11 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
-from django.views import View, generic
 from django.views.generic.detail import DetailView
-from django.utils.text import slugify
-
+from django.shortcuts import redirect, render, get_object_or_404
+from django.views import View, generic
 from .models import Post, Region, UserProfile
 from .forms import PostForm, UserProfileForm
+from django.utils.text import slugify
+from django.contrib import messages
+from unidecode import unidecode
 
 
 class AllPostsView(generic.ListView):
@@ -16,27 +16,34 @@ class AllPostsView(generic.ListView):
 
     def get_queryset(self):
         return Post.objects.all().order_by('-date_created')
-
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['regions'] = Region.objects.all()
         return context
-
+  
 
 class PostDetail(DetailView):
-    model = Post
-    template_name = "post_detail.html"
-    context_object_name = 'post'
+
+    def get(self, request, slug, *args, **kwargs):
+        queryset = Post.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+        print(post.slug)
+
+
+        return render(
+            request,
+            "post_detail.html",
+            {
+                'post': post
+            }
+        )
 
 
 class UserPostsView(View):
     template_name = 'profile.html'
 
     def get(self, request):
-        user_profile, user_posts = self.get_user_data(request)
-        return render(request, self.template_name, {'user_profile': user_profile, 'user_posts': user_posts})
-
-    def get_user_data(self, request):
         if request.user.is_authenticated:
             user = request.user
             user_profile = UserProfile.objects.get_or_create(user=user)[0]
@@ -44,82 +51,67 @@ class UserPostsView(View):
         else:
             user_profile = None
             user_posts = []
-        return user_profile, user_posts
+        return render(request, self.template_name, {'user_profile': user_profile, 'user_posts': user_posts})
 
 
-class EditProfileView(View):
-    template_name = 'edit_profile.html'
-
-    def get(self, request):
-        user_profile = UserProfile.objects.get_or_create(user=request.user)[0]
-        form = UserProfileForm(instance=user_profile)
-        return render(request, self.template_name, {'form': form})
-
-    def post(self, request):
+def edit_profile(request):
+    if request.method == 'POST':
         user_profile = UserProfile.objects.get_or_create(user=request.user)[0]
         form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
         if form.is_valid():
             form.save()
             return redirect('profile')
-        return render(request, self.template_name, {'form': form})
+    else:
+        user_profile = UserProfile.objects.get_or_create(user=request.user)[0]
+        form = UserProfileForm(instance=user_profile)
+    return render(request, 'edit_profile.html', {'form': form})
 
 
-class AddPostView(View):
-    template_name = 'add_post.html'
-
-    def get(self, request):
-        form = PostForm()
-        return render(request, self.template_name, {'form': form})
-
-    def post(self, request):
+def add_post(request):
+    if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            post.slug = self.generate_unique_slug(post.title)
+
+            # Generate a unique slug based on the title
+            base_slug = slugify(unidecode(post.title))
+            slug = base_slug
+            counter = 1
+
+            while Post.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{counter}"
+                counter += 1
+            
+            post.slug = slug
             post.save()
             return redirect('home')
-        return render(request, self.template_name, {'form': form})
-
-    def generate_unique_slug(self, title):
-        base_slug = slugify(title)
-        slug = base_slug
-        counter = 1
-
-        while Post.objects.filter(slug=slug).exists():
-            slug = f"{base_slug}-{counter}"
-            counter += 1
-
-        return slug
+    form = PostForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'add_post.html', context)
 
 
-class EditPostView(View):
-    template_name = 'edit_post.html'
-
-    def get(self, request, post_id):
-        post = get_object_or_404(Post, id=post_id)
-        form = PostForm(instance=post)
-        return render(request, self.template_name, {'form': form})
-
-    def post(self, request, post_id):
-        post = get_object_or_404(Post, id=post_id)
+def edit_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if request.method == 'POST':
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
             form.save()
             return redirect('profile')
-        return render(request, self.template_name, {'form': form})
+    form = PostForm(instance=post)
+    context = {
+        'form': form
+    }
+    return render(request, 'edit_post.html', context)
 
 
-class DeletePostView(View):
-    def get(self, request, post_id):
-        post = get_object_or_404(Post, id=post_id)
-        post.delete()
-        messages.success(request, 'Post deleted successfully.')
-        return redirect('profile')
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    post.delete()
+    messages.success(request, 'Post deleted successfully.')
+    return redirect('profile')
 
-
-class AboutUsView(View):
-    template_name = 'about_us.html'
-
-    def get(self, request):
-        return render(request, self.template_name)
+def about_us(request):
+    return render(request, 'about_us.html')

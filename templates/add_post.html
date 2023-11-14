@@ -2,13 +2,14 @@
 
 {% block content %}
 
+<section class="add-post p-30">
     <h2>New Post</h2>
-    <form action="add" method="POST">
+    <form action="add" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         {{ form.media }}
         <button class="submit-btn add-post-btn" type="submit">Publish</button>
     </form>
-
+</section>
 
 {% endblock %}
