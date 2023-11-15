@@ -3,57 +3,97 @@
 {% block content %}
 {% load custom_filters static %}
 
-<div class="container-fluid">
-    <section class="add-post p-30">
-        <h1>{{ user.username }}'s Profile</h1>
-        <img class="profile-img" src="{{ request.user.userprofile.avatar.url }}" width="100px" height="100px" alt="Avatar">
-        <p>{{ request.user.userprofile.bio }}</p>
+<section class="p-30 center">
+    <h1>{{ user.username }}'s Profile</h1>
+    {% if "placeholder" in request.user.userprofile.avatar.url %}
+        <img width="100" height="100"
+            class="profile-img" 
+            src="https://cdn0.iconfinder.com/data/icons/unigrid-flat-human-vol-2/90/011_101_anonymous_anonym_hacker_vendetta_user_human_avatar-1024.png"
+            alt="Avatar"
+        >
+    {% else %}
+        <img class="profile-img" src="{{ request.user.userprofile.avatar.url }}" width="100" height="100" alt="Avatar">
+    {% endif %}
         
+        <p>{{ request.user.userprofile.bio }}</p>
         <a href="/add">Add new post</a>
         <a href="/edit_profile">Edit profile</a>
-    </section>
-    <hr/>
+</section>
 
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 commom-container">
-    {% for user_post in user_posts %}
-        <div class="col col-lg-4 col-md-6 col-12">
-            <div class="card mb-4">
-                <div class="card-body">
-                    <div class="image-container d-flex justify-content-between">
-                        <div>
-                            <img 
-                                width="30px" height="30px"
-                                src="https://cdn0.iconfinder.com/data/icons/unigrid-flat-human-vol-2/90/011_101_anonymous_anonym_hacker_vendetta_user_human_avatar-1024.png" 
-                                alt="card-img"
-                            >
-                            <span class="card-author">{{ user_post.author }}</span>
+<hr/>
+    
+<div class="container-fluid commom-container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for user_post in user_posts %}
+            <div class="col col-lg-4 col-md-6 col-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="image-container d-flex justify-content-between">
+                            <div>
+                                {% if "placeholder" in request.user.userprofile.avatar.url %}
+                                    <img width="30" height="30"
+                                        class="profile-img" 
+                                        src="https://cdn0.iconfinder.com/data/icons/unigrid-flat-human-vol-2/90/011_101_anonymous_anonym_hacker_vendetta_user_human_avatar-1024.png"
+                                        alt="Avatar"
+                                    >
+                                {% else %}
+                                    <img width="30" height="30"
+                                        class="profile-img" src="{{ request.user.userprofile.avatar.url }}" 
+                                        alt="Avatar"
+                                    >
+                                {% endif %}
+                                <span class="card-author">{{ user_post.author }}</span>
+                            </div>
+                            <div>
+                                <a href="/profile/edit/{{ user_post.id }}"><i class="fa-regular fa-pen-to-square"></i></a>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
                         </div>
-                        <div>
-                            <a href="/profile/edit/{{ user_post.id }}"><i class="fa-regular fa-pen-to-square"></i></a>
-                            <a href="/profile/delete/{{ user_post.id }}"><i class="fa-solid fa-trash-can" style="margin: 0 20px;"></i></a>
+                        <div class="card-img-box">
+                            <a href="{% url 'post_detail' user_post.slug %}">
+                                {% if "placeholder" in user_post.featured_image.url %}
+                                    <img class="card-detail-image" src="{% static 'images/volunteers-default-img.png' %}" width="100%" alt="card-img">
+                                {% else %}
+                                    <img class="card-detail-image" src=" {{ user_post.featured_image.url }}" alt="card-img">
+                                {% endif %}
+                            </a>
                         </div>
+                        <a href="{% url 'post_detail' user_post.slug %}" class="card-title">
+                            {{ user_post.title }}
+                        </a>
+                        <p class="card-content">{{ user_post.content|truncate_text:170|safe }}</p>
+                        <hr />
+                        <p class="card-text text-muted h6">
+                            {{ user_post.date_created }} {{ post.number_of_likes }}
+                        </p>
                     </div>
-                    <div class="card-img-box">
-                        {% if "placeholder" in user_post.featured_image.url %}
-                        <img class="card-detail-image" src="{% static 'images/volunteers-default-img.png' %}"
-                            width="100%">
-                        {% else %}
-                        <img class="card-detail-image" src=" {{ user_post.featured_image.url }}">
-                        {% endif %}
-                    </div>
-                    <a href="{% url 'post_detail' user_post.slug %}">
-                        <h2 class="card-title">{{ user_post.title }}</h2>
-                    </a>
-                    <p class="card-content">{{ user_post.content|truncate_text:170|safe }}</p>
-                    <hr />
-                    <p class="card-text text-muted h6">
-                        {{ user_post.date_created }} {{ post.number_of_likes }}
-                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Delete Modal -->
+{% for user_post in user_posts %}
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteModalLabel">Are you sure you want to delete this post?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">
+                        <a href="/profile/delete/{{ user_post.id }}">Delete</a>
+                    </button>
                 </div>
             </div>
         </div>
-    {% endfor %}
-</div>
-</div>
+    </div>
+{% endfor %}
 
 {% endblock %}
