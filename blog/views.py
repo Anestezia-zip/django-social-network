@@ -113,5 +113,5 @@ def delete_post(request, post_id):
     messages.success(request, 'Post deleted successfully.')
     return redirect('profile')
 
-def about_us(request):
-    return render(request, 'about_us.html')
+def donate(request):
+    return render(request, 'donate.html')

@@ -18,15 +18,15 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
 from django.conf import settings
-from blog.views import add_post, edit_post, delete_post, about_us
+from blog.views import add_post, edit_post, delete_post
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls'), name='blog_urls'),
     path('accounts/', include('allauth.urls')),
     path('accounts/', include('allauth.socialaccount.urls')),
+    # CRUD posts
     path('add', add_post, name='add'),
-    path('about_us/', about_us, name='about_us'),
     path('profile/edit/<post_id>', edit_post, name='edit'),
     path('profile/delete/<post_id>/', delete_post, name='delete_post'),
 ]
