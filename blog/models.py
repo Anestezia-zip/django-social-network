@@ -31,6 +31,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, blank=True)
     avatar = CloudinaryField('image', default='placeholder')
+    role = models.CharField(max_length=20, choices=(('activist', 'Activist'), ('volunteer', 'Volunteer'), ('organization', 'Organization')), default='volunteer')
 
     def __str__(self):
         return self.user.username

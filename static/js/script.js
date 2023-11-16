@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttons = document.querySelectorAll('.region-button');
     const overlay = document.getElementById('full-screen-overlay');
     const fullScreenImageContainer = document.getElementById('full-screen-image-container');
+    const parallax = document.querySelector('.parallax-container');
+    const speed = 0.5;
 
     buttons.forEach(button => {
         button.addEventListener('click', function () {
@@ -26,4 +28,5 @@ document.addEventListener('DOMContentLoaded', function () {
         // Hide full-screen overlay when clicked
         overlay.style.display = 'none';
     });
+
 });

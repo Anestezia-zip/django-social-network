@@ -3,7 +3,15 @@
 {% block content %}
 {% load custom_filters static %}
 
-<div class="container-fluid" id="homepage-container">
+
+<section class="parallax-hero">
+    <div class="hero-container">
+        <h2>Help others realize outstanding projects through your knowledge and skills</h2>
+        <h2>Find volunteers for your own actions and ideas</h2>
+    </div>
+</section>
+
+<section class="container-fluid" id="homepage-container">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         {% for post in posts_list %}
         <div class="col col-lg-4 col-md-6 col-12">
@@ -38,7 +46,7 @@
         </div>
         {% endfor %}
     </div>
-</div>
+</section>
 
 <section class="map-descr-section">
     <p class="map-descr-text-bold">This map shows only part of the destruction caused by the Russian military and government. 

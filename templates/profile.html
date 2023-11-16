@@ -3,11 +3,11 @@
 {% block content %}
 {% load custom_filters static %}
 
-<section class="p-30 center">
+<section class="profile">
     <h1>{{ user.username }}'s Profile</h1>
     {% if "placeholder" in request.user.userprofile.avatar.url %}
-        <img width="100" height="100"
-            class="profile-img" 
+        <img width="200" height="200"
+            class="profile-main-img" 
             src="https://cdn0.iconfinder.com/data/icons/unigrid-flat-human-vol-2/90/011_101_anonymous_anonym_hacker_vendetta_user_human_avatar-1024.png"
             alt="Avatar"
         >
