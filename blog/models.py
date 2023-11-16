@@ -29,7 +29,7 @@ class Post(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    bio = models.TextField(max_length=500, blank=True)
+    bio = models.TextField(max_length=500)
     avatar = CloudinaryField('image', default='placeholder')
     role = models.CharField(max_length=20, choices=(('Activist', 'Activist'), ('Volunteer', 'Volunteer'), ('Organization', 'Organization')), default='volunteer')
 
