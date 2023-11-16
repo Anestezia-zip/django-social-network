@@ -1,6 +1,16 @@
 from django import forms
 from .models import Post, UserProfile
 from ckeditor.widgets import CKEditorWidget
+from allauth.account.forms import SignupForm
+
+class CustomSignupForm(SignupForm):
+    USER_CHOICES = (
+        ('activist', 'Activist'),
+        ('volunteer', 'Volunteer'),
+        ('organization', 'Organization'),
+    )
+    
+    user_type = forms.ChoiceField(choices=USER_CHOICES, label='Choose the role that suits you best')
 
 
 class PostForm(forms.ModelForm):

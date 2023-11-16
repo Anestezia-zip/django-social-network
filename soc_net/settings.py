@@ -87,6 +87,7 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ACCOUNT_SIGNUP_VIEW = 'blog.views.signup_view'
+ACCOUNT_FORMS = {'signup': 'blog.forms.CustomSignupForm'}
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

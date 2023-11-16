@@ -6,8 +6,19 @@
 
 <section class="parallax-hero">
     <div class="hero-container">
-        <h2>Help others realize outstanding projects through your knowledge and skills</h2>
-        <h2>Find volunteers for your own actions and ideas</h2>
+        <div class="hero-block">
+            <h2>Help others realize outstanding projects through your knowledge and skills</h2>
+            {% if not user.is_authenticated %}
+                <a class="hero-link" href="{% url 'account_signup' %}">I can help</a>
+            {% endif %}
+        </div>
+        <div class="hero-middle-line"></div>
+        <div class="hero-block">
+            <h2>Seek volunteers for your activities and ideas, empowering productive projects</h2>
+            {% if not user.is_authenticated %}
+                <a class="hero-link" href="{% url 'account_signup' %}">I need help</a>
+            {% endif %}
+        </div>
     </div>
 </section>
 

@@ -9,16 +9,16 @@
 
 <p class="text-align-c">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
+<a class="login-link text-align-c" href="{% provider_login_url 'google' %}"><i class="fa-brands fa-google"></i> Register with Google</a>
 <form class="signup center" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
-  <h3>{% trans "Register" %}</h3>
+  <h3>{% trans "Or with form:" %}</h3>
   {{ form.as_p }}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
   <button class="submit-btn" type="submit">{% trans "Sign Up" %} &raquo;</button>
   <hr />
-  <a class="login-link text-align-c" href="{% provider_login_url 'google' %}"><i class="fa-brands fa-google"></i> Register with Google</a>
 </form>
 
 {% endblock content %}

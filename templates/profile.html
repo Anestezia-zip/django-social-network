@@ -14,13 +14,14 @@
     {% else %}
         <img class="profile-img" src="{{ request.user.userprofile.avatar.url }}" width="100" height="100" alt="Avatar">
     {% endif %}
-        
         <p>{{ request.user.userprofile.bio }}</p>
-        <a href="/add">Add new post</a>
+        <p>{{ request.user.userprofile.role }}</p>
         <a href="/edit_profile">Edit profile</a>
 </section>
 
 <hr/>
+
+<a class="button-52" href="/add">Add new post</a>
     
 <div class="container-fluid commom-container">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -87,8 +88,8 @@
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">
-                        <a href="/profile/delete/{{ user_post.id }}">Delete</a>
+                    <button type="button" class="btn submit-btn delete-btn">
+                        <a href="/profile/delete/{{ user_post.id }}" style="color: white;">Delete</a>
                     </button>
                 </div>
             </div>
