@@ -9,14 +9,14 @@
         <div class="hero-block">
             <h2>Help others realize outstanding projects through your knowledge and skills</h2>
             {% if not user.is_authenticated %}
-                <a class="button-52" href="{% url 'account_signup' %}">I CAN HELP</a>
+                <a class="button-52 hero-btn" href="{% url 'account_signup' %}">I CAN HELP</a>
             {% endif %}
         </div>
         <div class="hero-middle-line"></div>
         <div class="hero-block">
             <h2>Seek volunteers for your activities and ideas, empowering productive projects</h2>
             {% if not user.is_authenticated %}
-                <a class="button-52" href="{% url 'account_signup' %}">I NEED HELP</a>
+                <a class="button-52 hero-btn" href="{% url 'account_signup' %}">I NEED HELP</a>
             {% endif %}
         </div>
     </div>
@@ -44,12 +44,14 @@
                         </div>
                     {% endif %}
                     <div class="card-img-box">
-                        {% if "placeholder" in post.featured_image.url %}
-                        <img class="card-detail-image" src="{% static 'images/volunteers-default-img.png' %}"
-                            width="100%">
-                        {% else %}
-                        <img class="card-detail-image" src=" {{ post.featured_image.url }}">
-                        {% endif %}
+                        <a href="{% url 'post_detail' post.slug %}">
+                            {% if "placeholder" in post.featured_image.url %}
+                            <img class="card-detail-image" src="{% static 'images/volunteers-default-img.png' %}"
+                                width="100%">
+                            {% else %}
+                            <img class="card-detail-image" src=" {{ post.featured_image.url }}">
+                            {% endif %}
+                        </a>
                     </div>
 
                     <a href="{% url 'post_detail' post.slug %}" class="post-link">

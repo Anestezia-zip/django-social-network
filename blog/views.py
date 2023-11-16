@@ -115,3 +115,4 @@ def delete_post(request, post_id):
 
 def donate(request):
     return render(request, 'donate.html')
+
