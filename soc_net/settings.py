@@ -54,7 +54,6 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django.contrib.humanize',
     'django_extensions',
-    'channels',
 
     # packages
     'allauth',
@@ -195,6 +194,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
+CLOUDINARY_STORAGE = {
+    'PREFIX': 'volunteer-force'
+}
+
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
