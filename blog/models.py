@@ -15,7 +15,7 @@ class Post(models.Model):
     date_updated = models.DateTimeField(auto_now=True)
     content = RichTextField(max_length=5000, blank=True, null=True, help_text="Maximum 5000 characters")
     status = models.IntegerField(choices=STATUS, default=1)
-    featured_image = CloudinaryField('image', default='placeholder')
+    featured_image = CloudinaryField('image', default='placeholder', folder='imgs')
 
     class Meta:
         ordering = ["-date_created"]
@@ -30,7 +30,7 @@ class Post(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500)
-    avatar = CloudinaryField('image', default='placeholder')
+    avatar = CloudinaryField('image', default='placeholder', folder='imgs')
     role = models.CharField(max_length=20, choices=(('Activist', 'Activist'), ('Volunteer', 'Volunteer'), ('Organization', 'Organization')), default='volunteer')
 
     def __str__(self):
@@ -39,11 +39,14 @@ class UserProfile(models.Model):
 
 class Region(models.Model):
     name = models.CharField(max_length=50)
-    image = CloudinaryField('image', default='placeholder')
-    image2 = CloudinaryField('image2', default='placeholder')
-    image3 = CloudinaryField('image3', default='placeholder')
-    image4 = CloudinaryField('image4', default='placeholder')
+    image = CloudinaryField('image', default='placeholder', folder='imgs')
+    image2 = CloudinaryField('image2', default='placeholder', folder='imgs')
+    image3 = CloudinaryField('image3', default='placeholder', folder='imgs')
+    image4 = CloudinaryField('image4', default='placeholder', folder='imgs')
     description = models.TextField()
 
     def __str__(self):
         return self.name
+    
+
+    

@@ -21,7 +21,7 @@ class AllPostsView(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['regions'] = Region.objects.all()
         return context
-  
+
 
 class PostDetail(DetailView):
 
@@ -112,6 +112,7 @@ def delete_post(request, post_id):
     post.delete()
     messages.success(request, 'Post deleted successfully.')
     return redirect('profile')
+
 
 def donate(request):
     return render(request, 'donate.html')
