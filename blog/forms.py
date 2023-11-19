@@ -5,8 +5,8 @@ from allauth.account.forms import SignupForm
 
 class CustomSignupForm(SignupForm):
     USER_CHOICES = (
-        ('Activist', 'Activist'),
         ('Volunteer', 'Volunteer'),
+        ('Activist', 'Activist'),
         ('Organization', 'Organization'),
     )
     

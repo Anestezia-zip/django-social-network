@@ -9,7 +9,7 @@
         {% if "placeholder" in request.user.userprofile.avatar.url %}
             <img width="100" height="100"
                 class="profile-main-img" 
-                src="https://cdn0.iconfinder.com/data/icons/unigrid-flat-human-vol-2/90/011_101_anonymous_anonym_hacker_vendetta_user_human_avatar-1024.png"
+                src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700328631/volunteer/anonym_nplen6.png"
                 alt="Avatar"
             >
         {% else %}
@@ -18,7 +18,13 @@
         <p class="profile-role">{{ request.user.userprofile.role }}</p>
     </div>
     <div>
-        <p class="profile-bio">{{ request.user.userprofile.bio }}</p>
+        <p class="profile-bio">
+            {% if request.user.userprofile.bio %}
+              {{ request.user.userprofile.bio }}
+            {% else %}
+              I am {{ request.user.userprofile.role }}
+            {% endif %}
+        </p>
         <a class="button-52 edit-btn" href="/edit_profile">Edit profile</a>
     </div>
 </section>
@@ -26,60 +32,64 @@
 <hr/>
 
 <a class="button-52 add-btn" href="/add">Add new post</a>
-    
-<div class="container-fluid commom-container">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        {% for user_post in user_posts %}
-            <div class="col col-lg-4 col-md-6 col-12">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <div class="image-container d-flex justify-content-between">
-                            <div>
-                                {% if "placeholder" in request.user.userprofile.avatar.url %}
-                                    <img width="20" height="20"
-                                        class="profile-img" 
-                                        src="https://cdn0.iconfinder.com/data/icons/unigrid-flat-human-vol-2/90/011_101_anonymous_anonym_hacker_vendetta_user_human_avatar-1024.png"
-                                        alt="Avatar"
-                                    >
-                                {% else %}
-                                    <img width="30" height="30"
-                                        class="profile-img" src="{{ request.user.userprofile.avatar.url }}" 
-                                        alt="Avatar"
-                                    >
-                                {% endif %}
-                                <span class="card-author">{{ user_post.author }}</span>
+
+{% if user_posts %}
+    <div class="container-fluid commom-container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {% for user_post in user_posts %}
+                <div class="col col-lg-4 col-md-6 col-12">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-container d-flex justify-content-between">
+                                <div>
+                                    {% if "placeholder" in request.user.userprofile.avatar.url %}
+                                        <img width="20" height="20"
+                                            class="profile-img" 
+                                            src="https://cdn0.iconfinder.com/data/icons/unigrid-flat-human-vol-2/90/011_101_anonymous_anonym_hacker_vendetta_user_human_avatar-1024.png"
+                                            alt="Avatar"
+                                        >
+                                    {% else %}
+                                        <img width="30" height="30"
+                                            class="profile-img" src="{{ request.user.userprofile.avatar.url }}" 
+                                            alt="Avatar"
+                                        >
+                                    {% endif %}
+                                    <span class="card-author">{{ user_post.author }}</span>
+                                </div>
+                                <div>
+                                    <a href="/profile/edit/{{ user_post.id }}"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </div>
                             </div>
-                            <div>
-                                <a href="/profile/edit/{{ user_post.id }}"><i class="fa-regular fa-pen-to-square"></i></a>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </button>
+                            <div class="card-img-box">
+                                <a href="{% url 'post_detail' user_post.slug %}">
+                                    {% if "placeholder" in user_post.featured_image.url %}
+                                        <img class="card-detail-image" src="{% static 'images/volunteers-default-img.png' %}" width="100%" alt="card-img">
+                                    {% else %}
+                                        <img class="card-detail-image" src=" {{ user_post.featured_image.url }}" alt="card-img">
+                                    {% endif %}
+                                </a>
                             </div>
-                        </div>
-                        <div class="card-img-box">
-                            <a href="{% url 'post_detail' user_post.slug %}">
-                                {% if "placeholder" in user_post.featured_image.url %}
-                                    <img class="card-detail-image" src="{% static 'images/volunteers-default-img.png' %}" width="100%" alt="card-img">
-                                {% else %}
-                                    <img class="card-detail-image" src=" {{ user_post.featured_image.url }}" alt="card-img">
-                                {% endif %}
+                            <a href="{% url 'post_detail' user_post.slug %}" class="card-title">
+                                {{ user_post.title }}
                             </a>
+                            <p class="card-content">{{ user_post.content|truncate_text:170|safe }}</p>
+                            <hr />
+                            <p class="card-text text-muted h6">
+                                {{ user_post.date_created }} {{ post.number_of_likes }}
+                            </p>
                         </div>
-                        <a href="{% url 'post_detail' user_post.slug %}" class="card-title">
-                            {{ user_post.title }}
-                        </a>
-                        <p class="card-content">{{ user_post.content|truncate_text:170|safe }}</p>
-                        <hr />
-                        <p class="card-text text-muted h6">
-                            {{ user_post.date_created }} {{ post.number_of_likes }}
-                        </p>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
-</div>
+{% else %}
+    <h4 class="center mt-20">You haven't created any posts yet</h4>
+{% endif %}
 
 <!-- Delete Modal -->
 {% for user_post in user_posts %}

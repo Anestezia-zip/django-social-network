@@ -28,28 +28,25 @@
         <div class="col col-lg-4 col-md-6 col-12">
             <div class="card">
                 <div class="card-body">
-                    {% if post.author.userprofile.avatar.url %}
-                        <div class="image-container">
+                    <div class="image-container">
+                        {% if post.author.userprofile.avatar %}
                             <img width="30px" height="30px" class="profile-img"
                                 src="{{ post.author.userprofile.avatar.url }}"
                                 alt="card-img">
-                            <span class="card-author">{{ post.author }}</span>
-                        </div>
-                    {% else %}
-                        <div class="image-container">
+                        {% else %}
                             <img width="30px" height="30px" class="profile-img"
-                                src="https://cdn0.iconfinder.com/data/icons/unigrid-flat-human-vol-2/90/011_101_anonymous_anonym_hacker_vendetta_user_human_avatar-1024.png"
+                                src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700328631/volunteer/anonym_nplen6.png"
                                 alt="card-img">
-                            <span class="card-author">{{ post.author }}</span>
-                        </div>
-                    {% endif %}
+                        {% endif %}
+                        <span class="card-author">{{ post.author }}</span>
+                    </div>
                     <div class="card-img-box">
                         <a href="{% url 'post_detail' post.slug %}">
                             {% if "placeholder" in post.featured_image.url %}
-                            <img class="card-detail-image" src="{% static 'images/volunteers-default-img.png' %}"
-                                width="100%">
+                                <img class="card-detail-image" src="{% static 'images/volunteers-default-img.png' %}"
+                                    width="100%">
                             {% else %}
-                            <img class="card-detail-image" src=" {{ post.featured_image.url }}">
+                                <img class="card-detail-image" src=" {{ post.featured_image.url }}">
                             {% endif %}
                         </a>
                     </div>
