@@ -118,7 +118,7 @@ a {
 }
 
 .edit-btn {
-    margin-left: 140px;
+    margin-left: 90px;
     margin-top: 10px;
 }
 
@@ -140,6 +140,15 @@ a {
         padding: 13px 50px 13px;
     }
 }
+
+@media (max-width: 768px) {
+    .button-52 {
+        font-size: 12px;
+        width: 120px;
+        padding: 8px;
+    }
+}
+
 
 /* ---------------------------------- Navbar ---------------------------------- */
 
@@ -164,6 +173,7 @@ a {
 }
 
 .card-body {
+    width: 100%;
     min-height: 383px;
 }
 
@@ -232,7 +242,7 @@ a {
 }
 
 .add-post input:not([type="file"]) {
-    width: 730px; 
+    width: 720px; 
     padding: 10px; 
     border: 1px solid #ccc; 
     border-radius: 6px;
@@ -244,6 +254,13 @@ a {
     outline: 1px solid #007bff; 
 }
 
+@media (max-width: 768px) {
+    .add-post input:not([type="file"]) {
+        width: 80%;
+    }
+}
+
+
 /* ---------------------------------- Footer ---------------------------------- */
 
 .footer {
@@ -254,12 +271,11 @@ a {
     background-color: rgb(14, 81, 153);
 }
 
-/* ---------------------------------- About us page ---------------------------------- */
+/* ---------------------------------- Donate page ---------------------------------- */
 
 .donate {
     max-width: 80%;
     padding: 30px 160px;
-    margin-left: 30px;
     font-family: Arial, sans-serif;
     margin: 20px auto;
     background-color: #fff;
@@ -316,6 +332,30 @@ a {
     text-align: center;
     color:rgb(211, 120, 0);
 }
+
+@media only screen and (max-width: 1060px) {
+    .parallax-donate h1 {
+        font-size: 70px;
+        max-width: 90%;
+        text-align: center;
+    }
+
+    .donate {
+        padding: 30px 100px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .parallax-donate h1 {
+        font-size: 60px;
+    }
+    .donate {
+        max-width: 90%;
+        padding: 30px 20px;
+        margin: 20px auto;
+    }
+}
+
 
 /* ---------------------------------- Home page ---------------------------------- */
 
@@ -438,11 +478,28 @@ img.profile-img {
     margin-top: 40px;
 }
 
+@media only screen and (max-width: 768px) {
+    .profile {
+        padding-left: 50px;
+        flex-direction: column;
+    }
+    .profile-bio {
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    .profile-img-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 /* ---------------------------------- Login & SignUp ---------------------------------- */
 
 .login, .signup, .signout {
-    margin: 30px auto 0;
-    width: 600px;
+    margin: 30px auto;
+    max-width: 600px;
     padding: 50px;
     background-color: white;
 }
@@ -533,6 +590,27 @@ select option:checked {
     background-color: #007bff;
     color: #fff;
 }
+
+@media only screen and (max-width: 991px) {
+    .login input {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 630px) {
+    .signup, .login {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 10px 30px;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    .login-link {
+        width: 200px;
+    }
+}
+
   
 
 /* --------------------------------------- Ukraine Map -------------------------------------- */

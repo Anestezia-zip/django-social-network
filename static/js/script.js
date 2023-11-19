@@ -22,9 +22,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    overlay.addEventListener('click', function () {
-        // Hide full-screen overlay when clicked
-        overlay.style.display = 'none';
-    });
+    if (overlay) {
+        overlay.addEventListener('click', function () {
+            // Hide full-screen overlay when clicked
+            overlay.style.display = 'none';
+        });
+    }
 
 });
