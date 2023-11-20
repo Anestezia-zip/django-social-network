@@ -6,14 +6,14 @@
 <section class="profile">
     <div class="profile-img-wrapper">
         <h1>{{ user.username }}</h1>
-        {% if "placeholder" in request.user.userprofile.avatar.url %}
+        {% if user_profile.avatar.url %}
+            <img class="profile-img" src="{{ request.user.userprofile.avatar.url }}" width="100" height="100" alt="Avatar">
+        {% else %}
             <img width="100" height="100"
                 class="profile-main-img" 
                 src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700328631/volunteer/anonym_nplen6.png"
                 alt="Avatar"
             >
-        {% else %}
-            <img class="profile-img" src="{{ request.user.userprofile.avatar.url }}" width="100" height="100" alt="Avatar">
         {% endif %}
         <p class="profile-role">{{ request.user.userprofile.role }}</p>
     </div>
