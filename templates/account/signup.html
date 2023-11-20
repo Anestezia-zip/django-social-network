@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<p class="mt-20 text-align-c">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+<p class="mt-20 text-align-c">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">login</a>.{% endblocktrans %}</p>
 
 <a class="login-link text-align-c" href="{% provider_login_url 'google' %}"><i class="fa-brands fa-google"></i> Register with Google</a>
 <form class="signup center" id="signup_form" method="post" action="{% url 'account_signup' %}">

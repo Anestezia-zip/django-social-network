@@ -304,7 +304,7 @@ a {
 }
 
 .parallax-donate {
-    background-image: url("../images/borodyanka.jpg");
+    background-image: url("https://res.cloudinary.com/dyadwedsy/image/upload/v1700314623/volunteer/czv1sulhvudbrxygv9zx.jpg");
     min-height: 500px; 
     background-attachment: fixed;
     background-position: center;
@@ -404,7 +404,7 @@ a {
 }
 
 .parallax-hero {
-    background-image: url("../images/hero-img.jpeg");
+    background-image: url("https://res.cloudinary.com/dyadwedsy/image/upload/v1700416426/volunteer/hero-img_olftud.jpg");
     min-height: 500px; 
     background-attachment: fixed;
     background-position: center;
@@ -455,16 +455,11 @@ img.profile-img {
 
 .profile {
     width: 100%;
-    background-image: url('../images/profile-design.png');
+    background-image: url('https://res.cloudinary.com/dyadwedsy/image/upload/v1700416454/volunteer/profile-design_xfnkvj.png');
     background-size: cover;
     padding: 10px 20px;
     padding-left: 120px;
     display: flex;
-}
-
-.profile-bc-img {
-    background-image: url('../images/profile-design.png');
-    background-size: cover;
 }
 
 .profile-role {
@@ -620,7 +615,7 @@ select option:checked {
     display: grid;
     place-items: center;
     max-height: 100vh;
-    background-image: url(../images/mariupol3.jpg);
+    background-image: url("https://res.cloudinary.com/dyadwedsy/image/upload/v1700416619/volunteer/mariupol3_gg1hwc.jpg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

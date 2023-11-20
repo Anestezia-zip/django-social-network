@@ -43,7 +43,7 @@
                     <div class="card-img-box">
                         <a href="{% url 'post_detail' post.slug %}">
                             {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-detail-image" src="{% static 'images/volunteers-default-img.png' %}"
+                                <img class="card-detail-image" src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700416693/volunteer/volunteers-default-img_qxgdhq.png"
                                     width="100%">
                             {% else %}
                                 <img class="card-detail-image" src=" {{ post.featured_image.url }}">
@@ -76,7 +76,7 @@
 </section>
 
 <div id="map-container">
-    <img src="{% static 'images/map-of-ukraine.jpg' %}" alt="Ukraine Map" id="map-image">
+    <img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700416731/volunteer/map-of-ukraine_iob4h4.jpg" alt="Ukraine Map" id="map-image">
 
     <div>
         {% for region in regions %}
