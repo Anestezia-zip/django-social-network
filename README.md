@@ -194,6 +194,7 @@ The testing section can be found [here](TESTING.md).
 ## Bugs
 | **Bug** | **Fix** |
 | ----------- | ----------- |
+| The site loads faster than the photo appears in src, so when you first sign up, you see alt text instead of the avatar | Moved default link in model and added condition **{% if user_profile.avatar.url %}** to profile |
 | The registration form defied stylization| Found the id of each input in devtools and stylized them |
 | Inputs were popping out of shape on small screens| Created a media query where I changed the width to a percentage. |
 | The user image wasn't uploading after updating profile| Added code in the form = 'enctype="multipart/form-data"'|
