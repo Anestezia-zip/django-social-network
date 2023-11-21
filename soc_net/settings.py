@@ -197,7 +197,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {
     'PREFIX': 'volunteer-force'
@@ -213,10 +212,6 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# django-crispy-forms
-# https://django-crispy-forms.readthedocs.io/en/latest/install.html
-CRISPY_TEMPLATE_PACK = 'uni_form'
 
 # django ckeditor
 CKEDITOR_CONFIGS = {
