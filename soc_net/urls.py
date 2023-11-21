@@ -31,6 +31,7 @@ urlpatterns = [
     path('profile/delete/<post_id>/', delete_post, name='delete_post'),
 ]
 
+
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

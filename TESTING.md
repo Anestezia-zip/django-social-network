@@ -140,10 +140,6 @@ Only profile page, I had to copy and paste code as I couldn't test as url page. 
 <img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700566387/volunteer/readme/r5risaf5fgxrwown6y6m.jpg">
 </details>
 
-<details><summary>Urls</summary>
-<img src="readme_img/validation/urls_py.png">
-</details>
-
 <details><summary>Models</summary>
 <img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700562120/volunteer/readme/bammrmn98y5kxkbpmiet.jpg">
 </details>

@@ -81,3 +81,5 @@ class TestProfileViews(TestCase):
     def test_donate(self):
         response = self.client.get(reverse('donate'))
         self.assertEqual(response.status_code, 200)
+
+
