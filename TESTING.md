@@ -42,6 +42,8 @@ Google Lighthouse was used to test the performance of the website.
 |  Chrome | Works as expected  |  Loading pages no issue | Responsivness works as expected  | Works as expected  |
 | Opera  |  Works as expected | Loading pages no issue  | Responsivness works as expected  |  Works as expected |
 
+[Back to the table](#table-of-contents)
+
 ## Responsiveness
 |   | Galaxy Fold  | Iphone SE   | iPhone12 Pro  | iPad mini  | desktop 1024px  |  desktop > 1200px | notes  |
 | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
@@ -83,6 +85,9 @@ Google Lighthouse was used to test the performance of the website.
 <details><summary>Smaller screns Register</summary>
 <img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700487940/volunteer/readme/z3n73msvlggpzhoh5weo.jpg">
 </details>  
+
+
+[Back to the table](#table-of-contents)
 
 ## Code Validation
 
@@ -150,7 +155,11 @@ Only profile page, I had to copy and paste code as I couldn't test as url page. 
 
 <details><summary>JS</summary>
 <img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700494457/volunteer/readme/iwzhii2z7jzx5mfuksfc.jpg">
-</details>
+</details>  
+
+[Back to the table](#table-of-contents)
+
+# Testing
 
 ## Manual Testing
 
@@ -172,3 +181,5 @@ I performed several automated tests for views, models and forms. Running all the
 <details><summary>Coverage Report</summary>
 <img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700571714/volunteer/readme/xajkqalhbprqgsjkwmdt.jpg">
 </details>
+
+[Back to the top](#table-of-contents)
