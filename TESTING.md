@@ -169,10 +169,6 @@ As a **site owner**, I want to be able to delete users so that I can receive sev
 
 I performed several automated tests for views, models and forms. Running all the tests seemed to me a time-consuming and difficult task, although now I understand what testing is and why it is important to create test cases for code.
 
-<details><summary>Number of tests</summary>s
-<img src="readme_img/test/test.png">
-</details>
-
-<details><summary>Report</summary>
-<img src="readme_img/test/report.png">
+<details><summary>Coverage Report</summary>
+<img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700571714/volunteer/readme/xajkqalhbprqgsjkwmdt.jpg">
 </details>
