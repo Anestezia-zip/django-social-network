@@ -137,7 +137,7 @@ Only profile page, I had to copy and paste code as I couldn't test as url page. 
 </details>
 
 <details><summary>Views</summary>
-<img src="readme_img/validation/views.pep.png">
+<img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700566387/volunteer/readme/r5risaf5fgxrwown6y6m.jpg">
 </details>
 
 <details><summary>Urls</summary>
