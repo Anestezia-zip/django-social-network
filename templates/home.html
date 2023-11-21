@@ -30,11 +30,11 @@
                 <div class="card-body">
                     <div class="image-container">
                         {% if post.author.userprofile.avatar %}
-                            <img width="30px" height="30px" class="profile-img"
+                            <img width="30" height="30" class="profile-img"
                                 src="{{ post.author.userprofile.avatar.url }}"
                                 alt="card-img">
                         {% else %}
-                            <img width="30px" height="30px" class="profile-img"
+                            <img width="30" height="30" class="profile-img"
                                 src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700328631/volunteer/anonym_nplen6.png"
                                 alt="card-img">
                         {% endif %}
@@ -44,9 +44,9 @@
                         <a href="{% url 'post_detail' post.slug %}">
                             {% if "placeholder" in post.featured_image.url %}
                                 <img class="card-detail-image" src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700416693/volunteer/volunteers-default-img_qxgdhq.png"
-                                    width="100%">
+                                    width="100%" alt="card-img">
                             {% else %}
-                                <img class="card-detail-image" src=" {{ post.featured_image.url }}">
+                                <img class="card-detail-image" src=" {{ post.featured_image.url }}" alt="post-img">
                             {% endif %}
                         </a>
                     </div>
@@ -55,7 +55,7 @@
                         <h2 class="card-title">{{ post.title }}</h2>
                     </a>
                     <p class="card-content">{{ post.content|truncate_text:170|safe }}</p>
-                    <hr />
+                    <hr>
                     <p class="card-text text-muted h6">
                         {{ post.date_created }} {{ post.number_of_likes }}
                     </p>
@@ -75,12 +75,12 @@
     <p class="map-descr-text-bold">No matter what city Ukrainians are in - they can meet death from a Russian missile everywhere</p>
 </section>
 
-<div id="map-container">
+<section id="map-container">
     <img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700416731/volunteer/map-of-ukraine_iob4h4.jpg" alt="Ukraine Map" id="map-image">
 
     <div>
         {% for region in regions %}
-        <button class="region-button"
+        <div class="region-button"
                 id="{{ region.name }}" 
                 data-region-images="{{ region.image.url }},{{ region.image2.url }},{{ region.image3.url }},{{ region.image4.url }}" 
                 data-region-name="{{ region.name }}"
@@ -90,27 +90,27 @@
             <div class="region-popup">
                 <h2>{{ region.name }}</h2>
                 <img class="region-popup-zoom-img" src="{{ region.image.url }}" alt="{{ region.name }}">
-                <hr/>
+                <hr>
                 <p>{{ region.description }}</p>
                 <div class="photo-hint">Click to enlarge</div>
             </div>
-        </button>
+        </div>
         {% endfor %}
     </div>
-</div>
+</section>
 
 <!-- Element for displaying the full-screen image -->
 <div id="full-screen-overlay">
     <div id="full-screen-image-container"></div>
 </div>
 
-<section class="map-descr-section">
+<div class="map-descr-section">
     <p class="map-descr-text-bold">The Russian occupiers are killing civilians, kidnapping and torturing Ukrainian journalists, politicians and public figures, 
         and they are also deporting Ukrainian citizens. The Russian occupiers are shooting at humanitarian corridors, looting Ukrainian businesses, 
         shops and homes, and raping women. Hundreds of cases of rape have been recorded, including of underage girls, very young children, and even babies. 
         The Russian occupiers organized a massacre of civilians in the town of Bucha in the Kyiv region 
         (see <a href="https://www.google.com/search?sca_esv=581957467&q=bucha+massacre&tbm=isch&source=lnms&sa=X&sqi=2&ved=2ahUKEwiB6MyauMGCAxUuX0EAHXPMAwQQ0pQJegQIChAB&biw=1536&bih=730&dpr=1.25">Bucha Massacre</a> ).
     </p>
-</section>
+</div>
 
 {%endblock%}

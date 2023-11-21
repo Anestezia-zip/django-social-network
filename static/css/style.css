@@ -79,7 +79,7 @@ a {
 
 .button-52 {
     display: block;
-    width: 220px;
+    width: 150px;
     margin: 10px auto;
     font-size: 16px;
     font-weight: bold;
@@ -93,6 +93,7 @@ a {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    padding: 8px 12px;
 }
 
 .button-52:after {
@@ -114,7 +115,7 @@ a {
 
 .button-52:hover {
     background-color: #ffffff9a;
-    transition: .3.5s ease-in-out;
+    transition: .3s ease-in-out;
 }
 
 .edit-btn {
@@ -175,7 +176,7 @@ a {
 }
 
 .card:hover {
-    scale: 1.02;
+    transform: scale(1.02);
     transition: all .3s ease-in-out;
 }
 
@@ -795,61 +796,6 @@ select option:checked {
     align-items: center;
     background-color: #fff;
 }
-
-/* paralax */
-
-/* .paralax-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-  
-.paralax-wrapper {
-    max-width: 1440px;
-    margin: 0 auto;
-    width: 100%;
-}
-  
-.parallax {
-    position: relative;
-    perspective: 1px;
-    height: 100vh;
-    overflow: hidden;
-    overflow-y: auto;
-}
-  
-.parallax-layer {
-    position: absolute;
-    inset: 0;   
-    height: 100%;
-}
-  
-.parallax-image {
-    transform: translateZ(0);
-    object-fit: cover;
-}
-
-
-@media(max-width: 768px) {
-    .parallax-image .paralax-img {
-        height: calc(100% + 300px);
-        object-fit: cover;
-    }
-}
-
-.parallax-text {
-    font-size: 72px;
-    color: #cde4f7;
-    transform: translateZ(-2px) translateX(100px) translateY(300px) scale(3);
-}
-
-@media (max-width: 768px) {
-    .parallax-text {
-        font-size: 62px;
-        transform: translateZ(-2px) translateX(20px) translateY(300px) scale(3);
-    }
-} */
-/* end paralax */
 
 /* --------------------------------------- Region Btns Positions & Media Queries -------------------------------------- */
 

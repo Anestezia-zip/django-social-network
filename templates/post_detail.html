@@ -5,9 +5,9 @@
 
 <div class="post-img-box">
     {% if "placeholder" in post.featured_image.url %}
-    <img class="post-detail-image" src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700416693/volunteer/volunteers-default-img_qxgdhq.png" width="100%">
+    <img class="post-detail-image" src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700416693/volunteer/volunteers-default-img_qxgdhq.png" width="100%" alt="post-detail-image">
     {% else %}
-    <img class="post-detail-image" src=" {{ post.featured_image.url }}">
+    <img class="post-detail-image" src=" {{ post.featured_image.url }}" alt="post-detail-image">
     {% endif %}
 </div>
 <div class="masthead">

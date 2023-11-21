@@ -30,7 +30,7 @@
         </div>
     </section>
     
-    <hr/>
+    <hr>
     
     <a class="button-52 add-btn" href="/add">Add new post</a>
     
@@ -102,10 +102,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn submit-btn delete-btn">
-                            <a href="/profile/delete/{{ user_post.id }}" style="color: white;">Delete</a>
-                        </button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="/profile/delete/{{ user_post.id }}" class="btn submit-btn delete-btn" style="color: white;">Delete</a>
                     </div>
                 </div>
             </div>
