@@ -6,6 +6,7 @@ from .forms import PostForm, UserProfileForm
 from django.utils.text import slugify
 from django.contrib import messages
 from unidecode import unidecode
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 class AllPostsView(generic.ListView):
@@ -14,8 +15,18 @@ class AllPostsView(generic.ListView):
     paginate_by = 6
     context_object_name = 'posts_list'
 
-    def get_queryset(self):
-        return Post.objects.all().order_by('-date_created')
+    def get(self, request):
+        posts = Post.objects.all().order_by('-date_created')
+        paginator = Paginator(posts, self.paginate_by)
+        page = request.GET.get('page')
+        try:
+            posts = paginator.page(page)
+        except PageNotAnInteger:
+            posts = paginator.page(1)
+        except EmptyPage:
+            posts = paginator.page(paginator.num_pages)
+        
+        return render(request, self.template_name, {'posts_list': posts})
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
