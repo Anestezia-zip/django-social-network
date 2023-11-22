@@ -26,12 +26,9 @@ class AllPostsView(generic.ListView):
         except EmptyPage:
             posts = paginator.page(paginator.num_pages)
         
-        return render(request, self.template_name, {'posts_list': posts})
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['regions'] = Region.objects.all()
-        return context
+        # Обновим контекст, чтобы передать переменную posts_list
+        context = {'posts_list': posts, 'regions': Region.objects.all()}
+        return render(request, self.template_name, context)
 
 
 class PostDetail(DetailView):

@@ -843,19 +843,19 @@ select option:checked {
 /* --------------------------------------- Region Btns Positions & Media Queries -------------------------------------- */
 
 #Lviv {
-    top: 29%;
-    left: 30%;
+    top: 30%;
+    left: 27.5%;
 }
 #Lutsk {
-    top: 16.5%;
+    top: 18%;
     left: 31%;
 }
 #Rivne {
-    top: 20%;
+    top: 21%;
     left: 35%;
 }
 #Ternopil {
-    top: 29%;
+    top: 30%;
     left: 32%;
 }
 #Ivano-Frankivsk {
@@ -863,8 +863,8 @@ select option:checked {
     left: 32.5%;
 }
 #Glevaha {
-    top: 20.5%;
-    left: 45%;
+    top: 21%;
+    left: 46%;
 }
 #Kyiv {
     top: 25%;
@@ -875,24 +875,24 @@ select option:checked {
     left: 47%;
 }
 #Chernihiv {
-    top: 10.5%;
+    top: 12%;
     left: 52%;
 }
 #Sumy {
-    top: 17%;
-    left: 59%;
+    top: 18%;
+    left: 59.5%;
 }
 #Harkiv {
-    top: 26%;
+    top: 27%;
     left: 66%;
 }
 #Dnipro {
     top: 46%;
-    left: 64%;
+    left: 65%;
 }
 #Zaporizhzhya {
-    top: 52%;
-    left: 62%;
+    top: 54%;
+    left: 64%;
 }
 #Mariupol {
     top: 62%;
@@ -900,39 +900,39 @@ select option:checked {
 }
 [id="Kryvyi Rih"] {
     top: 49%;
-    left: 56%;
+    left: 57%;
 }
 #Cherkasy {
     top: 35%;
     left: 49%;
 }
 #Zhytomyr {
-    top: 23%;
+    top: 24%;
     left: 41%;
 }
 #Hmelnytsky {
-    top: 32%;
+    top: 33%;
     left: 38%;
 }
 #Vinnytsia {
-    top: 36%;
+    top: 36.5%;
     left: 43%;
 }
 #Ohtyrka {
-    top: 22%;
-    left: 55%;
+    top: 26%;
+    left: 61%;
 }
 #Herson {
-    top: 66.5%;
+    top: 66%;
     left: 55%;
 }
 #Odesa {
-    top: 67%;
-    left: 48%;
+    top: 68%;
+    left: 49.5%;
 }
 #Mykolaiv {
-    top: 60%;
-    left: 52%;
+    top: 59.5%;
+    left: 51%;
 }
 #Uman {
     top: 48%;
@@ -951,20 +951,21 @@ select option:checked {
     }
 }
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 768px) {
     #Ohtyrka {
-        top: 25%;
+        top: 26%;
         left: 67%;
     }
     #Herson {
+        top: 64%;
+        left: 58%;
+    }
+    #Odesa {
         top: 66%;
-        left: 58%;
-    }
-    #Odesa {
         left: 49%;
     }
     #Mykolaiv {
-        top: 59%;
+        top: 58%;
         left: 51%;
     }
     #Uman {
@@ -975,131 +976,32 @@ select option:checked {
         left: 64%;
     }
     #Zhytomyr {
-        top: 22%;
-        left: 36%;
+        top: 25%;
+        left: 37%;
     }
     #Hmelnytsky {
-        top: 31%;
-        left: 31%;
-    }
-    #Vinnytsia {
-        top: 35%;
-        left: 39%;
-    }
-    #Lviv {
-        top: 28%;
-        left: 15%;
-    }
-    #Lutsk {
-        top: 16%;
-        left: 21%;
-    }
-    #Rivne {
-        top: 19%;
-        left: 26%;
-    }
-    #Ternopil {
-        top: 28%;
-        left: 22%;
-    }
-    #Ivano-Frankivsk {
-        top: 38%;
-        left: 23%;
-    }
-    #Glevaha {
-        top: 20%;
-        left: 43%;
-    }
-    #Kyiv {
-        left: 48%;
-    }
-    #Borodyanka {
-        left: 44%;
-    }
-    #Chernihiv {
-        top: 10%;
-        left: 53%;
-    }
-    #Sumy {
-        top: 16%;
-        left: 64%;
-    }
-    #Harkiv {
-        top: 25%;
-        left: 75%;
-    }
-    #Dnipro {
-        top: 45%;
-        left: 74%;
-    }
-    #Zaporizhzhya {
-        top: 53%;
-        left: 71%;
-    }
-    #Mariupol {
-        left: 81%;
-    }
-    [id="Kryvyi Rih"] {
-        top: 48%;
-        left: 59%;
-    }
-    #Cherkasy {
-        top: 34%;
-        left: 49%;
-    }
-} 
-
-@media (min-width:540px) and (max-width:768px) {
-    #Ohtyrka {
-        top: 27%;
-        left: 67%;
-    }
-    #Herson {
-        top: 65%;
-        left: 58%;
-    }
-    #Odesa {
-        top: 67%;
-        left: 49%;
-    }
-    #Mykolaiv {
-        top: 59%;
-        left: 51%;
-    }
-    #Uman {
-        top: 47%;
-        left: 44%;
-    }
-    #Nikopol {
-        left: 64%;
-    }
-    #Zhytomyr {
-        top: 25%;
-        left: 36%;
-    }
-    #Hmelnytsky {
-        top: 34%;
-        left: 31%;
+        top: 33%;
+        left: 32%;
     }
     #Vinnytsia {
         top: 37%;
-        left: 40%;
+        left: 39%;
     }
     #Lviv {
-        top: 32%;
-        left: 16%;
+        top: 31%;
+        left: 18%;
     }
     #Lutsk {
-        top: 19%;
-        left: 21%;
+        top: 20%;
+        left: 23%;
     }
     #Rivne {
         top: 23%;
-        left: 27%;
+        left: 28%;
     }
     #Ternopil {
         top: 31%;
-        left: 23%;
+        left: 24%;
     }
     #Ivano-Frankivsk {
         top: 40%;
@@ -1107,59 +1009,63 @@ select option:checked {
     }
     #Glevaha {
         top: 23%;
-        left: 45%;
+        left: 44%;
     }
     #Kyiv {
         top: 26%;
         left: 49%;
     }
     #Borodyanka {
-        top: 29%;
-        left: 45%;
+        top: 30%;
+        left: 44%;
     }
     #Chernihiv {
-        top: 14%;
+        top: 14.5%;
         left: 53%;
     }
     #Sumy {
-        top: 20%;
-        left: 64%;
+        top: 19.5%;
+        left: 63.5%;
     }
     #Harkiv {
         top: 28%;
         left: 73%;
     }
     #Dnipro {
-        top: 46%;
-        left: 73%;
+        top: 45%;
+        left: 72%;
     }
     #Zaporizhzhya {
-        top: 54%;
-        left: 70%;
+        top: 53%;
+        left: 68.5%;
     }
     #Mariupol {
-        left: 80%;
+        left: 79%;
     }
     [id="Kryvyi Rih"] {
-        left: 60%;
+        top: 48%;
+        left: 59%;
     }
-}
+    #Cherkasy {
+        top: 36%;
+        left: 49%;
+    }
+} 
 
 @media (min-width:768px) and (max-width:960px) {
     #Ohtyrka {
-        top: 25%;
-        left: 67%;
+        top: 26.5%;
+        left: 66%;
     }
     #Herson {
-        top: 66%;
+        top: 64.5%;
         left: 58%;
     }
     #Odesa {
-        left: 49%;
+        top: 66%;
     }
     #Mykolaiv {
-        top: 59%;
-        left: 51%;
+        top: 58%;
     }
     #Uman {
         top: 48%;
@@ -1169,7 +1075,7 @@ select option:checked {
         left: 64%;
     }
     #Zhytomyr {
-        top: 22%;
+        top: 23%;
         left: 36%;
     }
     #Hmelnytsky {
@@ -1181,54 +1087,55 @@ select option:checked {
         left: 39%;
     }
     #Lviv {
-        left: 15.5%;
+        left: 16%;
     }
     #Lutsk {
-        left: 20%;
+        left: 22%;
     }
     #Rivne {
-        left: 26.5%;
+        left: 27%;
     }
     #Ternopil {
-        left: 22%;
+        left: 23%;
     }
     #Ivano-Frankivsk {
         left: 23%;
     }
     #Glevaha {
-        top: 20%;
+        top: 21%;
         left: 44%;
     }
     #Kyiv {
-        left: 48%;
+        left: 49%;
     }
     #Borodyanka {
         left: 44%;
     }
     #Chernihiv {
-        top: 9%;
+        top: 12%;
         left: 53%;
     }
     #Sumy {
-        top: 16%;
+        top: 18%;
         left: 64%;
     }
     #Harkiv {
-        top: 25%;
-        left: 75%;
+        top: 26%;
+        left: 74%;
     }
     #Dnipro {
         top: 45%;
-        left: 74%;
+        left: 72%;
     }
     #Zaporizhzhya {
         top: 53%;
-        left: 71%;
+        left: 69%;
     }
     #Mariupol {
-        left: 81%;
+        left: 80%;
     }
     [id="Kryvyi Rih"] {
+        top: 48%;
         left: 60%;
     }
     #Cherkasy {
@@ -1239,7 +1146,7 @@ select option:checked {
 
 @media (min-width:960px) and (max-width:1000px) {
     #Ohtyrka {
-        top: 25%;
+        top: 26%;
         left: 67%;
     }
     #Herson {
@@ -1261,11 +1168,11 @@ select option:checked {
         left: 64%;
     }
     #Zhytomyr {
-        top: 23%;
+        top: 24%;
         left: 36%;
     }
     #Hmelnytsky {
-        top: 32%;
+        top: 33%;
         left: 31%;
     }
     #Vinnytsia {
@@ -1305,20 +1212,20 @@ select option:checked {
         left: 64%;
     }
     #Harkiv {
-        left: 75%;
+        left: 74%;
     }
     #Dnipro {
-        left: 74%;
+        left: 73%;
     }
     #Zaporizhzhya {
         top: 54%;
-        left: 71%;
+        left: 70%;
     }
     #Mariupol {
         left: 81%;
     }
     [id="Kryvyi Rih"] {
-        top: 50%;
+        top: 49.5%;
         left: 60%;
     }
 }
@@ -1345,6 +1252,7 @@ select option:checked {
         left: 43%;
     }
     #Nikopol {
+        top: 57%;
         left: 64%;
     }
     #Zhytomyr {
@@ -1358,6 +1266,9 @@ select option:checked {
     #Vinnytsia {
         top: 38%;
         left: 39%;
+    }
+    #Cherkasy {
+        top: 36.5%;
     }
     #Lviv {
         top: 32%;
@@ -1376,7 +1287,7 @@ select option:checked {
         left: 24%;
     }
     #Ivano-Frankivsk {
-        top: 40%;
+        top: 41%;
         left: 23.5%;
     }
     #Kyiv {
@@ -1385,6 +1296,7 @@ select option:checked {
     }
     #Glevaha {
         top: 22%;
+        left: 44%;
     }
     #Borodyanka {
         top: 30%;
@@ -1399,21 +1311,22 @@ select option:checked {
         left: 64%;
     }
     #Harkiv {
-        top: 27%;
-        left: 73%;
+        top: 28%;
+        left: 74%;
     }
     #Dnipro {
+        top: 48%;
         left: 72%;
     }
     #Zaporizhzhya {
-        top: 54%;
-        left: 69%;
+        top: 56%;
+        left: 70%;
     }
     #Mariupol {
         left: 79%;
     }
     [id="Kryvyi Rih"] {
-        top: 50%;
+        top: 51%;
         left: 60%;
     }
 }
@@ -1428,7 +1341,7 @@ select option:checked {
         left: 58%;
     }
     #Odesa {
-        top: 73%;
+        top: 74%;
         left: 49%;
     }
     #Mykolaiv {
@@ -1448,28 +1361,31 @@ select option:checked {
         left: 37%;
     }
     #Hmelnytsky {
-        top: 35%;
-        left: 33%;
+        top: 35.5%;
+        left: 32%;
     }
     #Vinnytsia {
-        top: 39%;
+        top: 40%;
         left: 40%;
+    }
+    #Cherkasy {
+        top: 38%;
     }
     #Lviv {
         top: 33%;
-        left: 19%;
+        left: 17.5%;
     }
     #Lutsk {
         top: 20%;
-        left: 23%;
+        left: 22%;
     }
     #Rivne {
-        top: 23%;
-        left: 29%;
+        top: 24%;
+        left: 28%;
     }
     #Ternopil {
         top: 33%;
-        left: 25%;
+        left: 24%;
     }
     #Ivano-Frankivsk {
         top: 43%;
@@ -1481,6 +1397,7 @@ select option:checked {
     }
     #Glevaha {
         top: 24%;
+        left: 44%;
     }
     #Borodyanka {
         top: 31%;
@@ -1491,20 +1408,20 @@ select option:checked {
         left: 53%;
     }
     #Sumy {
-        top: 20%;
+        top: 21%;
         left: 63%;
     }
     #Harkiv {
         top: 29%;
-        left: 73%;
+        left: 74%;
     }
     #Dnipro {
         top: 50%;
         left: 72%;
     }
     #Zaporizhzhya {
-        top: 58%;
-        left: 69%;
+        top: 59%;
+        left: 70%;
     }
     #Mariupol {
         top: 65%;
@@ -1518,84 +1435,99 @@ select option:checked {
 
 @media (min-width:1110px) and (max-width:1200px) {
     #Ohtyrka {
-        top: 25%;
-        left: 64%;
+        top: 28%;
+        left: 65%;
     }
     #Herson {
-        top: 67%;
+        top: 71%;
         left: 57%;
     }
     #Odesa {
-        top: 69%;
+        top: 74%;
         left: 49%;
     }
     #Mykolaiv {
-        top: 60%;
+        top: 64%;
         left: 51%;
     }
     #Nikopol {
-        left: 57%;
-    }
-    #Uman {
-        top: 49%;
-        left: 44%;
-    }
-    #Nikopol {
+        top: 60%;
         left: 64%;
     }
+    #Uman {
+        top: 52%;
+        left: 43%;
+    }
     #Zhytomyr {
+        top: 26%;
         left: 38%;
     }
     #Hmelnytsky {
+        top: 35%;
         left: 33%;
     }
     #Vinnytsia {
+        top: 40%;
         left: 40%;
     }
     #Lviv {
-        left: 21%;
+        top: 33.5%;
+        left: 19%;
     }
     #Lutsk {
-        left: 25%;
+        top: 20%;
+        left: 24%;
     }
     #Rivne {
-        left: 31%;
+        top: 24%;
+        left: 29%;
     }
     #Ternopil {
-        left: 27%;
+        top: 33%;
+        left: 25%;
     }
     #Ivano-Frankivsk {
+        top: 43%;
         left: 26%;
     }
     #Kyiv {
-        top: 26%;
-        left: 48%;
+        top: 27%;
+        left: 49%;
     }
     #Borodyanka {
-        top: 29%;
+        top: 31%;
+        left: 45%;
+    }
+    #Glevaha {
+        top: 23%;
         left: 45%;
     }
     #Chernihiv {
+        top: 13.5%;
         left: 53%;
     }
     #Sumy {
-        left: 62%;
+        top: 20%;
+        left: 63%;
     }
     #Harkiv {
-        left: 71%;
+        top: 29%;
+        left: 72%;
     }
     #Dnipro {
-        left: 70%;
+        top: 50%;
+        left: 71%;
     }
     #Zaporizhzhya {
-        top: 54%;
-        left: 68%;
+        top: 59%;
+        left: 69%;
     }
     #Mariupol {
-        left: 77%;
+        top: 65%;
+        left: 78%;
     }
     [id="Kryvyi Rih"] {
-        top: 49.5%;
+        top: 53%;
         left: 59%;
     }
 } 
@@ -1694,7 +1626,7 @@ select option:checked {
         left: 58%;
     }
 } 
-
+/*
 @media (min-width:1290px) and (max-width:1350px) {
     #Ohtyrka {
         top: 25%;
@@ -1936,4 +1868,4 @@ select option:checked {
     #Mariupol {
         left: 68%;
     }
-}
+} */
