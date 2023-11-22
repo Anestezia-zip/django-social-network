@@ -39,7 +39,6 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['127.0.0.1', 'django-volunteer-force-daec5f5fae54.herokuapp.com']
 
-
 # Application definition
 
 INSTALLED_APPS = [

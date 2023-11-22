@@ -20,6 +20,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 from blog.views import add_post, edit_post, delete_post
 
+handler404 = 'blog.views.custom404'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls'), name='blog_urls'),
@@ -35,9 +37,3 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-if settings.DEBUG:
-
-    import debug_toolbar
-    urlpatterns = [
-        path("__debug__/", include("debug_toolbar.urls")),
-    ] + urlpatterns
