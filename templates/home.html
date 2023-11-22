@@ -45,10 +45,10 @@
                     <div class="card-img-box">
                         <a href="{% url 'post_detail' post.slug %}">
                             {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-detail-image" src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700416693/volunteer/volunteers-default-img_qxgdhq.png"
+                                <img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700416693/volunteer/volunteers-default-img_qxgdhq.png"
                                     width="100%" alt="card-img">
                             {% else %}
-                                <img class="card-detail-image" src=" {{ post.featured_image.url }}" alt="post-img">
+                                <img src=" {{ post.featured_image.url }}" alt="post-img">
                             {% endif %}
                         </a>
                     </div>
@@ -70,12 +70,11 @@
 
 <!-- Отображение кнопок для переключения страниц -->
 <div class="pagination">
+    <span class="current">Page {{ posts_list.number }} of {{ posts_list.paginator.num_pages }}</span>
     {% if posts_list.has_previous %}
         <a href="?page=1#posts">First</a>
         <a href="?page={{ posts_list.previous_page_number }}#posts">Previous</a>
     {% endif %}
-
-    <span class="current">Page {{ posts_list.number }} of {{ posts_list.paginator.num_pages }}</span>
 
     {% if posts_list.has_next %}
         <a href="?page={{ posts_list.next_page_number }}#posts">Next</a>

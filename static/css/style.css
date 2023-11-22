@@ -224,11 +224,14 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .post-img-box img {
-    max-width: 100%; 
+    width: 100%; 
     height: auto;
+    object-fit: cover; 
+    object-position: center;
 }
 
 .post-detail-image {
@@ -251,6 +254,25 @@ a {
 .add-post input:not([type="file"]):focus {
     border: 1px solid transparent; 
     outline: 1px solid #007bff; 
+}
+
+.current {
+    padding: 10px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.pagination a {
+    padding: 6px 12px;
+    margin: 0 10px;
+    background-color: #bdcef1;
+    color: #223150;
+    border-radius: 8px;
 }
 
 @media (max-width: 768px) {
