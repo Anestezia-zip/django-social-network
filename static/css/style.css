@@ -384,7 +384,8 @@ a {
 
 @media only screen and (max-width: 1060px) {
     .parallax-donate {
-        background-image: url("https://res.cloudinary.com/dyadwedsy/image/upload/v1700729173/volunteer/urfme5jbeebq5xhs17v2.jpg");
+        background-image: url("https://res.cloudinary.com/dyadwedsy/image/upload/v1700731765/volunteer/u8xzhnd5kkqnwc5rcz4k.jpg");
+        background-position: bottom 100%;
         min-height: 360px;
     }
 
@@ -472,6 +473,10 @@ a {
 }
 
 @media only screen and (max-width: 768px) {
+    .parallax-hero {
+        background-image: url("https://res.cloudinary.com/dyadwedsy/image/upload/v1700729173/volunteer/urfme5jbeebq5xhs17v2.jpg");
+    }
+
     .hero-container {
         flex-direction: column;
     }
