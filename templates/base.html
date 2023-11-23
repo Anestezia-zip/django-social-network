@@ -22,6 +22,9 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'home' %}">Volunteer Force</a>
+          <a class="navbar-brand-img" href="{% url 'home' %}">
+            <img width="50" src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700652951/volunteer/readme/bam5waqbpiqzb3rvcdy0.png" alt="navbar img">
+          </a>
           {% if user.is_authenticated %}
             <h5 class="user">{% user_display user %}</h5>
           {% endif %}
@@ -53,9 +56,6 @@
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
                     <li><a class="dropdown-item" href="/add">Add new post</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
                   </ul>
                 </li>
               {% endif %}

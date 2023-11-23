@@ -165,7 +165,7 @@ a {
 }
 
 .navbar-brand {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Pacifico', sans-serif;
     font-size: 20px; 
     background-color: rgba(52, 152, 219, 0.2);
     color: #2ecc71; 
@@ -176,6 +176,20 @@ a {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     display: inline-block;
+}
+
+.navbar-brand-img {
+    display: none;
+    margin-left: 16px;
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        display: none;
+    }
+    .navbar-brand-img {
+        display: block;
+    }
 }
 
 /* ---------------------------------- Card ---------------------------------- */
@@ -370,6 +384,7 @@ a {
 
 @media only screen and (max-width: 1060px) {
     .parallax-donate {
+        background-image: url("https://res.cloudinary.com/dyadwedsy/image/upload/v1700729173/volunteer/urfme5jbeebq5xhs17v2.jpg");
         min-height: 360px;
     }
 
@@ -532,6 +547,10 @@ img.profile-img {
     max-width: 500px;
     margin-left: 90px;
     margin-top: 40px;
+}
+
+.edit-profile-form {
+    padding: 20px 20px 12px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -795,6 +814,9 @@ select option:checked {
     height: auto;
     padding: 20px;
     box-sizing: border-box; 
+    max-width: 100%;  
+    margin: 0 auto; 
+    overflow-x: hidden; 
 }
 
 #full-screen-image-container img {
@@ -838,6 +860,17 @@ select option:checked {
     justify-content: center;
     align-items: center;
     background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    #full-screen-image-container {
+        flex-direction: column;
+    }
+    
+    #full-screen-image-container img {
+        width: 90%;
+        height: 22vh; 
+    }
 }
 
 /* --------------------------------------- Region Btns Positions & Media Queries -------------------------------------- */
@@ -1542,7 +1575,7 @@ select option:checked {
         left: 56%;
     }
     #Odesa {
-        top: 73%;
+        top: 74%;
         left: 49%;
     }
     #Mykolaiv {
@@ -1555,7 +1588,7 @@ select option:checked {
     }
     #Nikopol {
         top: 60%;
-        left: 61%;
+        left: 62%;
     }
     #Zhytomyr {
         top: 26%;
@@ -1566,24 +1599,24 @@ select option:checked {
         left: 34%;
     }
     #Vinnytsia {
-        top: 39%;
+        top: 40%;
         left: 41%;
     }
     #Lviv {
         top: 33%;
-        left: 23%;
+        left: 22%;
     }
     #Lutsk {
         top: 20%;
-        left: 27%;
+        left: 25%;
     }
     #Rivne {
-        top: 23%;
-        left: 32%;
+        top: 24%;
+        left: 31%;
     }
     #Ternopil {
         top: 33%;
-        left: 28%;
+        left: 27%;
     }
     #Ivano-Frankivsk {
         top: 43%;
@@ -1591,7 +1624,10 @@ select option:checked {
     }
     #Kyiv {
         top: 27%;
-        left: 48%;
+        left: 49%;
+    }
+    #Glevaha {
+        top: 23.5%;
     }
     #Borodyanka {
         top: 31%;
@@ -1607,7 +1643,7 @@ select option:checked {
     }
     #Harkiv {
         top: 29%;
-        left: 70%;
+        left: 71%;
     }
     #Dnipro {
         top: 50%;
