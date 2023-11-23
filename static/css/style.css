@@ -873,8 +873,8 @@ select option:checked {
     }
     
     #full-screen-image-container img {
-        width: 90%;
-        height: 22vh; 
+        width: 95%;
+        height: 20vh; 
     }
 }
 

@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const buttons = document.querySelectorAll('.region-button');
     const overlay = document.getElementById('full-screen-overlay');
     const fullScreenImageContainer = document.getElementById('full-screen-image-container');
+    const body = document.body;
 
     buttons.forEach(button => {
         button.addEventListener('click', function () {
@@ -9,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Show full-screen overlay with the clicked images
             overlay.style.display = 'block';
+            body.style.overflow = 'hidden'; // Disallow scrolling
 
             // Clear previous images
             fullScreenImageContainer.innerHTML = '';
@@ -26,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
         overlay.addEventListener('click', function () {
             // Hide full-screen overlay when clicked
             overlay.style.display = 'none';
+            body.style.overflow = 'auto'; // Allow scrolling
         });
     }
-
 });
