@@ -13,4 +13,4 @@ class RegionAdmin(admin.ModelAdmin):
 
 @admin.register(UserProfile)
 class RegionAdmin(admin.ModelAdmin):
-    list_display = ('avatar', 'bio')
+    list_display = ('user','avatar', 'bio')

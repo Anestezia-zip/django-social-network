@@ -7,6 +7,7 @@ from django.utils.text import slugify
 from django.contrib import messages
 from unidecode import unidecode
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth.decorators import login_required
 
 
 class AllPostsView(generic.ListView):
@@ -26,7 +27,7 @@ class AllPostsView(generic.ListView):
         except EmptyPage:
             posts = paginator.page(paginator.num_pages)
         
-        # Обновим контекст, чтобы передать переменную posts_list
+        # Let's update the context to pass the posts_list variable
         context = {'posts_list': posts, 'regions': Region.objects.all()}
         return render(request, self.template_name, context)
 
@@ -52,30 +53,29 @@ class UserPostsView(View):
     template_name = 'profile.html'
 
     def get(self, request):
-        if request.user.is_authenticated:
-            user = request.user
-            user_profile = UserProfile.objects.get_or_create(user=user)[0]
-            user_posts = Post.objects.filter(author=user)
-        else:
-            user_profile = None
-            user_posts = []
+        user = request.user
+        user_profile = UserProfile.objects.get_or_create(user=user)[0]
+        user_posts = Post.objects.filter(author=user)
         return render(request, self.template_name, {'user_profile': user_profile, 'user_posts': user_posts})
 
 
+@login_required
 def edit_profile(request):
+    user_profile = UserProfile.objects.get_or_create(user=request.user)[0]
     if request.method == 'POST':
-        user_profile = UserProfile.objects.get_or_create(user=request.user)[0]
         form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
         if form.is_valid():
             form.save()
             return redirect('profile')
-    else:
-        user_profile = UserProfile.objects.get_or_create(user=request.user)[0]
-        form = UserProfileForm(instance=user_profile)
+
+    form = UserProfileForm(instance=user_profile)
     return render(request, 'edit_profile.html', {'form': form})
 
 
+@login_required
 def add_post(request):
+    form = PostForm()
+
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -93,21 +93,26 @@ def add_post(request):
             
             post.slug = slug
             post.save()
-            return redirect('home')
-    form = PostForm()
+
+            # Getting the object of the created post
+            created_post = get_object_or_404(Post, slug=slug)
+            return redirect('post_detail', slug=created_post.slug)
+
     context = {
         'form': form
     }
     return render(request, 'add_post.html', context)
 
 
+@login_required
 def edit_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES, instance=post)
-        if form.is_valid():
-            form.save()
-            return redirect('profile')
+    if post.author == request.user:
+        if request.method == 'POST':
+            form = PostForm(request.POST, request.FILES, instance=post)
+            if form.is_valid():
+                form.save()
+                return redirect('profile')
     form = PostForm(instance=post)
     context = {
         'form': form
@@ -115,6 +120,7 @@ def edit_post(request, post_id):
     return render(request, 'edit_post.html', context)
 
 
+@login_required
 def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     post.delete()
