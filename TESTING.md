@@ -104,7 +104,7 @@ Only profile page, I had to copy and paste code as I couldn't test as url page. 
 </details>
 
 <details><summary>Signup page</summary>
-<img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700490822/volunteer/readme/ebwtd3s3losxat2np6eq.jpg">
+<img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700492237/volunteer/readme/g8vfhudhwh920n2f84pj.jpg">
 </details>
 
 <details><summary>Home page</summary>
@@ -134,11 +134,11 @@ Only profile page, I had to copy and paste code as I couldn't test as url page. 
 [PEP8 CI Python Linter](https://pep8ci.herokuapp.com/) was used to check that the Python code meets PEP8 standards.
 
 <details><summary>Admin</summary>
-<img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700563887/volunteer/readme/h6zu2bdcm2fedgec3omo.jpg">
+<img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1701181748/volunteer/readme/mfl9qqyxn6otdqsmykho.jpg">
 </details>
 
 <details><summary>Forms</summary>
-<img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700563247/volunteer/readme/nl8giafbwk4yxsrt8run.jpg">
+<img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1701182024/volunteer/readme/hbw7sbhgisncmgx6ckuy.jpg">
 </details>
 
 <details><summary>Views</summary>
@@ -177,6 +177,22 @@ As a **site owner**, I want to be able to delete users so that I can receive sev
 ## Automated Testing
 
 I performed several automated tests for views, models and forms. Running all the tests seemed to me a time-consuming and difficult task, although now I understand what testing is and why it is important to create test cases for code.
+
+<details><summary>Admin</summary>
+<img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700563887/volunteer/readme/h6zu2bdcm2fedgec3omo.jpg">
+</details>
+
+<details><summary>Forms</summary>
+<img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700563247/volunteer/readme/nl8giafbwk4yxsrt8run.jpg">
+</details>
+
+<details><summary>Views</summary>
+<img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1701182222/volunteer/readme/v2if9c4vypellpbp9lsk.jpg">
+</details>
+
+<details><summary>Models</summary>
+<img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1701182222/volunteer/readme/v2if9c4vypellpbp9lsk.jpg">
+</details>
 
 <details><summary>Coverage Report</summary>
 <img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700571714/volunteer/readme/xajkqalhbprqgsjkwmdt.jpg">

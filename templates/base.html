@@ -25,15 +25,16 @@
           <a class="navbar-brand-img" href="{% url 'home' %}">
             <img width="50" src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700652951/volunteer/readme/bam5waqbpiqzb3rvcdy0.png" alt="navbar img">
           </a>
-          {% if user.is_authenticated %}
-            <h5 class="user">{% user_display user %}</h5>
-          {% endif %}
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fa-solid fa-bars"></i>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+              </li>
               {% if user.is_authenticated %}
+              <h5 class="user">{% user_display user %}</h5>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
               </li>

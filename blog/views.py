@@ -26,7 +26,7 @@ class AllPostsView(generic.ListView):
             posts = paginator.page(1)
         except EmptyPage:
             posts = paginator.page(paginator.num_pages)
-        
+
         # Let's update the context to pass the posts_list variable
         context = {'posts_list': posts, 'regions': Region.objects.all()}
         return render(request, self.template_name, context)
@@ -38,7 +38,6 @@ class PostDetail(DetailView):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         print(post.slug)
-
 
         return render(
             request,
@@ -56,14 +55,19 @@ class UserPostsView(View):
         user = request.user
         user_profile = UserProfile.objects.get_or_create(user=user)[0]
         user_posts = Post.objects.filter(author=user)
-        return render(request, self.template_name, {'user_profile': user_profile, 'user_posts': user_posts})
 
+        return render(
+            request,
+            self.template_name,
+            {'user_profile': user_profile, 'user_posts': user_posts}
+        )
 
 @login_required
 def edit_profile(request):
     user_profile = UserProfile.objects.get_or_create(user=request.user)[0]
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
+        form = UserProfileForm(
+            request.POST, request.FILES, instance=user_profile)
         if form.is_valid():
             form.save()
             return redirect('profile')
@@ -90,13 +94,10 @@ def add_post(request):
             while Post.objects.filter(slug=slug).exists():
                 slug = f"{base_slug}-{counter}"
                 counter += 1
-            
+
             post.slug = slug
             post.save()
-
-            # Getting the object of the created post
-            created_post = get_object_or_404(Post, slug=slug)
-            return redirect('post_detail', slug=created_post.slug)
+            return redirect('profile')
 
     context = {
         'form': form

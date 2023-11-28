@@ -8,7 +8,7 @@ Join us in creating positive change, empowering communities, and fostering a cul
   
 ![Am i responsive image](readme_img/responsive/responsive.png)  
 ​
-[Click Here To Visit Live Site](https://blog-hike.herokuapp.com/)  
+[Click Here To Visit Live Site](https://django-volunteer-force-daec5f5fae54.herokuapp.com/)  
 ​
 ## Table Of Contents:
 1. [Planning](#planning)
@@ -138,13 +138,6 @@ I used Github and Project Board using Kanban board:
 
     <details><summary>Sign up page</summary>
     <img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700409973/volunteer/readme/signup_vmssf6.jpg">
-    </details>
-
-### 404 page
-- I've created custom 404 page:  
-
-    <details><summary>404 page</summary>
-    <img src="readme_img/test/404.png">
     </details>
 
 [Back to the table](#table-of-contents)
