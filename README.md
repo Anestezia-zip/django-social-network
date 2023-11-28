@@ -6,7 +6,7 @@ With Volunteer Force, you can discover a multitude of volunteer opportunities, r
 
 Join us in creating positive change, empowering communities, and fostering a culture of giving back. Explore, engage, and make an impact with Volunteer Force.
   
-![Am i responsive image](readme_img/responsive/responsive.png)  
+![Am i responsive image](https://res.cloudinary.com/dyadwedsy/image/upload/v1701200804/volunteer/readme/z2n5rwyydjxpp7is66ql.jpg)  
 ​
 [Click Here To Visit Live Site](https://django-volunteer-force-daec5f5fae54.herokuapp.com/)  
 ​

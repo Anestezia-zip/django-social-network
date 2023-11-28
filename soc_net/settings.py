@@ -63,6 +63,8 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
 ]
 
+X_FRAME_OPTIONS='SAMEORIGIN'
+
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
