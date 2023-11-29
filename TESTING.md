@@ -27,12 +27,12 @@ Google Lighthouse was used to test the performance of the website.
 
 #### Desktop Results:
 <details><summary>Desktop</summary>
-<img src="readme_img/validation/mobile_performance.png">
+<img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1701254259/volunteer/readme/fuoyxpeaewiqtjfjr5w8.png">
 </details>
 
 #### Mobile Results:
 <details><summary>Mobile</summary>
-<img src="readme_img/validation/mobile_performance.png">
+<img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1701254263/volunteer/readme/oss8x4sb7180cakd2ejq.png">
 </details>
 
 ## Browser Compatibility
