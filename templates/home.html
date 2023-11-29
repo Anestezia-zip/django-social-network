@@ -68,7 +68,7 @@
     </div>
 </section>
 
-<!-- Отображение кнопок для переключения страниц -->
+<!-- Displaying buttons for page switching -->
 <div class="pagination">
     <span class="current">Page {{ posts_list.number }} of {{ posts_list.paginator.num_pages }}</span>
     {% if posts_list.has_previous %}
@@ -80,53 +80,6 @@
         <a href="?page={{ posts_list.next_page_number }}#posts">Next</a>
         <a href="?page={{ posts_list.paginator.num_pages }}#posts">Last</a>
     {% endif %}
-</div>
-
-<section class="map-descr-section">
-    <p class="map-descr-text-bold">This map shows only part of the destruction caused by the Russian military and government. 
-        And only part of the big cities. If we take into attention small cities or villages, there are 10 times as many red circles. 
-        Or even more.
-        The Russian military is killing and maiming the lives of the Ukrainian people day after day. 
-    </p>
-    <p class="map-descr-text-bold">No matter what city Ukrainians are in - they can meet death from a Russian missile everywhere</p>
-</section>
-
-<section id="map-container">
-    <img src="https://res.cloudinary.com/dyadwedsy/image/upload/v1700416731/volunteer/map-of-ukraine_iob4h4.jpg" alt="Ukraine Map" id="map-image">
-
-    <div>
-        {% for region in regions %}
-        <div class="region-button"
-                id="{{ region.name }}" 
-                data-region-images="{{ region.image.url }},{{ region.image2.url }},{{ region.image3.url }},{{ region.image4.url }}" 
-                data-region-name="{{ region.name }}"
-                data-region-description="{{ region.description }}"
-        >
-            <i class="fa-solid fa-house-chimney-crack"></i>   
-            <div class="region-popup">
-                <h2>{{ region.name }}</h2>
-                <img class="region-popup-zoom-img" src="{{ region.image.url }}" alt="{{ region.name }}">
-                <hr>
-                <p>{{ region.description }}</p>
-                <div class="photo-hint">Click to enlarge</div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</section>
-
-<!-- Element for displaying the full-screen image -->
-<div id="full-screen-overlay">
-    <div id="full-screen-image-container"></div>
-</div>
-
-<div class="map-descr-section">
-    <p class="map-descr-text-bold">The Russian occupiers are killing civilians, kidnapping and torturing Ukrainian journalists, politicians and public figures, 
-        and they are also deporting Ukrainian citizens. The Russian occupiers are shooting at humanitarian corridors, looting Ukrainian businesses, 
-        shops and homes, and raping women. Hundreds of cases of rape have been recorded, including of underage girls, very young children, and even babies. 
-        The Russian occupiers organized a massacre of civilians in the town of Bucha in the Kyiv region 
-        (see <a href="https://www.google.com/search?sca_esv=581957467&q=bucha+massacre&tbm=isch&source=lnms&sa=X&sqi=2&ved=2ahUKEwiB6MyauMGCAxUuX0EAHXPMAwQQ0pQJegQIChAB&biw=1536&bih=730&dpr=1.25">Bucha Massacre</a> ).
-    </p>
 </div>
 
 {%endblock%}

@@ -27,8 +27,8 @@ class AllPostsView(generic.ListView):
         except EmptyPage:
             posts = paginator.page(paginator.num_pages)
 
-        # Let's update the context to pass the posts_list variable
-        context = {'posts_list': posts, 'regions': Region.objects.all()}
+        # Updated context to pass the posts_list variable
+        context = {'posts_list': posts}
         return render(request, self.template_name, context)
 
 
@@ -60,6 +60,7 @@ class UserPostsView(View):
             self.template_name,
             {'user_profile': user_profile, 'user_posts': user_posts}
         )
+
 
 @login_required
 def edit_profile(request):
@@ -130,6 +131,12 @@ def delete_post(request, post_id):
 
 def donate(request):
     return render(request, 'donate.html')
+
+
+def map(request):
+    regions = Region.objects.all()
+    context = {'regions': regions}
+    return render(request, 'map.html', context)
 
 
 def custom404(request, exception):
